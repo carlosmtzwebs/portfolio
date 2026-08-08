@@ -1,0 +1,1718 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== SEO :: Meta principal ===== -->
+    <title>Portafolio — Carlos Martínez | Proyectos web reales</title>
+    <meta
+      name="description"
+      content="Explora los proyectos web que he desarrollado: sitios corporativos, tiendas en Shopify, landing pages y plataformas en WordPress y React."
+    />
+    <meta name="author" content="Carlos Martínez" />
+    <link rel="canonical" href="https://carlosmtz.netlify.app/portfolio.html" />
+
+    <!-- ===== Open Graph ===== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Portafolio — Carlos Martínez" />
+    <meta
+      property="og:description"
+      content="Proyectos web reales: sitios corporativos, tiendas online, landing pages y plataformas a medida."
+    />
+    <meta
+      property="og:image"
+      content="https://carlosmtz.netlify.app/assets/og-cover.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://carlosmtz.netlify.app/portfolio.html"
+    />
+    <meta property="og:locale" content="es_MX" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Portafolio — Carlos Martínez" />
+    <meta
+      name="twitter:description"
+      content="Proyectos web reales: sitios corporativos, tiendas online, landing pages y plataformas a medida."
+    />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2304F2B2%22>•</text></svg>"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+    <!-- ============================================ -->
+    <!-- NAVBAR                                        -->
+    <!-- ============================================ -->
+    <header class="navbar" id="navbar" role="banner">
+      <nav class="navbar__inner" aria-label="Navegación principal">
+        <a
+          href="index.html"
+          class="navbar__logo"
+          aria-label="Carlos Martínez — Inicio"
+        >
+          <img
+            class="navbar__logo-img"
+            src="assets/imgs/logo-horizontal-blanco.png"
+            alt="Logo Carlos Martínez Desarrollo Web y Marketing Digital"
+          />
+        </a>
+
+        <button
+          class="navbar__toggle"
+          id="navToggle"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="navbar__menu" id="navMenu">
+          <ul class="navbar__links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="portfolio.html" class="is-active">Portafolio</a></li>
+            <!-- <li><a href="planes.html">Planes</a></li> -->
+            <li><a href="index.html#contacto">Contacto</a></li>
+          </ul>
+          <a
+            href="https://wa.me/523348217208"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--primary btn--sm navbar__cta"
+            >Hablemos</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- ============================================ -->
+      <!-- HERO PEQUEÑO                                  -->
+      <!-- ============================================ -->
+      <section class="page-hero" aria-label="Introducción al portafolio">
+        <div class="container">
+          <p class="eyebrow" style="display: flex; justify-content: center">
+            // Portafolio
+          </p>
+          <h1 class="page-hero__title">Proyectos que hablan por sí solos</h1>
+          <p class="page-hero__subtitle" style="margin-inline: auto">
+            Sitios corporativos, tiendas online y plataformas a medida, todos en
+            producción hoy.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- FILTROS                                       -->
+      <!-- ============================================ -->
+      <div class="container">
+        <div
+          class="filters"
+          role="group"
+          aria-label="Filtrar proyectos por categoría"
+        >
+          <button class="filter-btn is-active" data-filter="todos">
+            Todos
+          </button>
+          <button class="filter-btn" data-filter="landing">
+            Landing Pages
+          </button>
+          <button class="filter-btn" data-filter="web">Sitios Web</button>
+          <button class="filter-btn" data-filter="tienda">
+            Tiendas Online
+          </button>
+          <button class="filter-btn" data-filter="wordpress">WordPress</button>
+          <button class="filter-btn" data-filter="shopify">Shopify</button>
+          <button class="filter-btn" data-filter="codigo">Código Limpio</button>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- GRID DE PROYECTOS                             -->
+        <!-- ============================================ -->
+        <div class="portfolio-grid" id="portfolioGrid">
+          <article class="portfolio-card" data-category="landing codigo">
+            <a
+              href="https://uniconcreto.landingsp.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/uniconcreto-landingsp-2026-08-08-11_16_39.webp"
+                alt="Sitio web de Uniconcreto"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Uniconcreto</p>
+              <h2 class="portfolio-card__title">Concreto y maquinaria</h2>
+              <p class="portfolio-card__text">
+                Landing Page para empresa de concreto hidráulico, bombeo pluma y
+                estacionaria, mano de obra y renta de maquinaria.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Landing</span><span>Código Limpio</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://uniconcreto.landingsp.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <a
+              href="https://abogadoscardenasmagdaleno.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/abogadoscardenasmagdaleno-2026-06-27-15_00_01.webp"
+                alt="Sitio web de Abogados Cárdenas Magdaleno"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Abogados Cardenas Magdaleno</p>
+              <h2 class="portfolio-card__title">Despacho legal corporativo</h2>
+              <p class="portfolio-card__text">
+                Landing Page para firma legal, con foco en autoridad y captación
+                de consultas a medida.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Landing</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://abogadoscardenasmagdaleno.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://soamobiliario.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/soamobiliario-2026-06-27-14_57_47.webp"
+                alt="SOA Mobiliario"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">SOA Mobiliario</p>
+              <h2 class="portfolio-card__title">Catálogo de mobiliario</h2>
+              <p class="portfolio-card__text">
+                Catálogo de mobiliario para oficinas, hospitales, escuelas,
+                laboratorios y espacios comerciales.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://soamobiliario.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <a
+              href="https://abogadosespecialistasmx.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/abogadosespecialistasmx-2026-06-27-14_59_47.webp"
+                alt="Sitio web de Abogados Especialistas"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Abogados Especialistas</p>
+              <h2 class="portfolio-card__title">
+                Despacho legal especializado
+              </h2>
+              <p class="portfolio-card__text">
+                Landing Page para despacho legal especializado, con objetivo de
+                presencia web y conversiones.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Landing</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://abogadosespecialistasmx.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing codigo">
+            <a
+              href="https://casmolan-nails.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/casmolan-nails-netlify-app-2026-06-27.webp"
+                alt="Landing page CASMOLAN Nails"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">CASMOLAN Nails</p>
+              <h2 class="portfolio-card__title">
+                Landing para estudio de uñas
+              </h2>
+              <p class="portfolio-card__text">
+                Landing para estudio de uñas, con diseño moderno y enfoque en
+                conversión de clientes.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Código Limpio</span><span>Landing</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://casmolan-nails.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://schulzmexico.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/schulzmexico-2026-06-27-14_59_10.webp"
+                alt="Sitio web Schulz México"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Schulz México</p>
+              <h2 class="portfolio-card__title">Sitio web industrial</h2>
+              <p class="portfolio-card__text">
+                Desarrollo de sitio web corporativo para la distribución de
+                compresores industriales, refacciones y servicios
+                especializados.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://schulzmexico.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://adxdiesel.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/adxdiesel-2026-06-27-14_58_02.webp"
+                alt="Sitio web de ADX Diesel"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">ADX Diesel</p>
+              <h2 class="portfolio-card__title">
+                Catálogo de refacciones diésel
+              </h2>
+              <p class="portfolio-card__text">
+                Catálogo de inyectores, bombas de inyección, turbocargadores y
+                refacciones para motores diésel.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://adxdiesel.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://aranmexdiesel.mx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/aranmexdiesel-mx-2026-06-27-14_58_14.webp"
+                alt="Sitio web de Aranmex Diesel"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Aranmex Diesel</p>
+              <h2 class="portfolio-card__title">
+                Sitio Web para laboratorio diésel
+              </h2>
+              <p class="portfolio-card__text">
+                Sitio Web Industrial para laboratorio especializado en sistemas
+                de inyección y venta de refacciones diésel.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://aranmexdiesel.mx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <a
+              href="https://asesoresprofesionalesmx.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/asesoresprofesionalesmx-2026-06-27-15_00_51.webp"
+                alt="Sitio web de Asesores Profesionales"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Asesores Profesionales</p>
+              <h2 class="portfolio-card__title">
+                Landing para despacho jurídico
+              </h2>
+              <p class="portfolio-card__text">
+                Landing Page diseñada para captar consultas legales mediante una
+                estructura clara, profesional y orientada a conversiones.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Landing</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://asesoresprofesionalesmx.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://bgtclogistica.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/bgtclogistica-2026-06-27-14_56_07.webp"
+                alt="Sitio web de BG-TC Logística"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">BG-TC Logística</p>
+              <h2 class="portfolio-card__title">
+                Sitio Web para empresa de transporte
+              </h2>
+              <p class="portfolio-card__text">
+                Sitio Web Corporativo enfocado en mostrar servicios de
+                transporte y logística de carga.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://bgtclogistica.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://cafefinanciero.mx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/cafefinanciero-mx-2026-06-27-15_01_29.webp"
+                alt="Sitio web de Café Financiero"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Café Financiero</p>
+              <h2 class="portfolio-card__title">
+                Portal de asesoría financiera
+              </h2>
+              <p class="portfolio-card__text">
+                Sitio web corporativo para asesores financieros con secciones de
+                inversiones, seguros, podcast y generación de prospectos.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://cafefinanciero.mx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://cajasolidariateco.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/cajasolidariateco-2026-06-27-14_59_32.webp"
+                alt="Sitio web de Caja Solidaria Tecolotlán"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Caja Solidaria Tecolotlán</p>
+              <h2 class="portfolio-card__title">
+                Sitio web para institución financiera
+              </h2>
+              <p class="portfolio-card__text">
+                Portal institucional para cooperativa de ahorro y crédito con
+                información de servicios, beneficios y captación de socios.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://cajasolidariateco.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://cmmprinting.com.mx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/cmmprinting-mx-2026-06-27-15_01_13.webp"
+                alt="Sitio web de CMM Printing"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">CMM Printing</p>
+              <h2 class="portfolio-card__title">
+                Sitio web para empresa de impresión
+              </h2>
+              <p class="portfolio-card__text">
+                Web corporativa para empresa especializada en impresión,
+                señalética, identidad corporativa y soluciones gráficas.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://cmmprinting.com.mx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <a
+              href="https://despachojuridicojalisciense.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/despachojuridicojalisciense-2026-06-27-14_58_25.webp"
+                alt="Sitio web de Despacho Jurídico Jalisciense"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">
+                Despacho Jurídico Jalisciense
+              </p>
+              <h2 class="portfolio-card__title">
+                Landing para despacho de abogados
+              </h2>
+              <p class="portfolio-card__text">
+                Landing Page diseñada para transmitir confianza, experiencia
+                jurídica y captar nuevos clientes mediante formularios.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Landing</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://despachojuridicojalisciense.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <a
+              href="https://despachojuridicojaramillo.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/despachojuridicojaramillo-2026-06-27-14_58_36.webp"
+                alt="Sitio web de Despacho Jurídico Jaramillo"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Despacho Jurídico Jaramillo</p>
+              <h2 class="portfolio-card__title">Landing para firma legal</h2>
+              <p class="portfolio-card__text">
+                Landing Page enfocada en posicionar los servicios legales del
+                despacho y facilitar la generación de consultas.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Landing</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://despachojuridicojaramillo.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <a
+              href="https://especialistasjuridicos.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/especialistasjuridicos-2026-06-27-15_00_59.webp"
+                alt="Sitio web de Especialistas Jurídicos"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Especialistas Jurídicos</p>
+              <h2 class="portfolio-card__title">
+                Landing para abogados especialistas
+              </h2>
+              <p class="portfolio-card__text">
+                Landing Page para despacho especializado en derecho familiar y
+                penal, orientada a la captación de clientes.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Landing</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://especialistasjuridicos.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <a
+              href="https://fastoffice.landingsp.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/fastoffice-landingsp-2026-06-27-14_55_24.webp"
+                alt="Sitio web de Fast Office"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Fast Office</p>
+              <h2 class="portfolio-card__title">
+                Landing para renta de oficinas
+              </h2>
+              <p class="portfolio-card__text">
+                Landing Page para oficinas corporativas con enfoque en mostrar
+                espacios disponibles y generar solicitudes de información.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Landing</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://fastoffice.landingsp.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://gomezgallardo.com.mx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/gomezgallardo-mx-2026-06-27-14_55_38.webp"
+                alt="Sitio web de Gómez Gallardo"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Gómez Gallardo</p>
+              <h2 class="portfolio-card__title">
+                Sitio Web para despacho contable
+              </h2>
+              <p class="portfolio-card__text">
+                Web Corporativa para firma de asesores contables y fiscales
+                enfocada en generar confianza y captar nuevos clientes.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://gomezgallardo.com.mx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://gruposm.mx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/gruposm-mx-2026-06-27-15_01_43.webp"
+                alt="Sitio web de Grupo SM Ingeniería"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Grupo SM Ingeniería</p>
+              <h2 class="portfolio-card__title">
+                Sitio web para empresa de ingeniería
+              </h2>
+              <p class="portfolio-card__text">
+                Web corporativa para empresa especializada en supervisión de
+                obra, control de calidad y servicios de ingeniería.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://gruposm.mx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <a
+              href="https://hyr.soa-mobiliario.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/hyr-soa-mobiliario-2026-06-27-14_56_57.webp"
+                alt="Sitio web de HYR SOA Mobiliario"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">HyR SOA Mobiliario</p>
+              <h2 class="portfolio-card__title">
+                Catálogo de mobiliario institucional
+              </h2>
+              <p class="portfolio-card__text">
+                Landing page con Catálogo de mobiliario para hoteles y
+                restaurantes con enfoque comercial y objetivo de conversiones.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Landing</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://hyr.soa-mobiliario.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://impressione.mx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/impressione-mx-2026-06-27-14_56_38.webp"
+                alt="Sitio web de Impressione"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Impressione</p>
+              <h2 class="portfolio-card__title">
+                Sitio web para empresa de impresión
+              </h2>
+              <p class="portfolio-card__text">
+                Web corporativa para empresa dedicada a soluciones de impresión,
+                empaque, etiquetado y acabados para la industria.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://impressione.mx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://inmcarritos.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/inmcarritos-2026-06-27-15_02_37.webp"
+                alt="Sitio web de Inoxidables Nuevo México"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Inoxidables Nuevo México</p>
+              <h2 class="portfolio-card__title">
+                Fabricación de cocinas y mobiliario inoxidable
+              </h2>
+              <p class="portfolio-card__text">
+                Sitio web corporativo para fabricante de cocinas industriales,
+                mobiliario en acero inoxidable y proyectos especiales.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://inmcarritos.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://inrent.mx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/inrent-mx-2026-06-27-15_02_11.webp"
+                alt="Sitio web de INRENT Ingeniería y Maquinaria"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">
+                INRENT Ingeniería y Maquinaria
+              </p>
+              <h2 class="portfolio-card__title">
+                Sitio web para empresa constructora
+              </h2>
+              <p class="portfolio-card__text">
+                Web corporativa enfocada en construcción, urbanización,
+                ingeniería y renta de maquinaria con presentación de obras
+                realizadas.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://inrent.mx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://labpro.mx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/labpro-mx-2026-06-27-14_58_56.webp"
+                alt="Sitio web LabPro"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">LabPro</p>
+              <h2 class="portfolio-card__title">Sitio web para laboratorio</h2>
+              <p class="portfolio-card__text">
+                Web corporativa para empresa especializada en mantenimiento,
+                capacitación y venta de equipos de laboratorio.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://labpro.mx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <a
+              href="https://lading.abogados-af.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/lading-abogados-af-2026-06-27-14_55_08.webp"
+                alt="Landing AF Abogados"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">AF Abogados</p>
+              <h2 class="portfolio-card__title">
+                Landing para despacho jurídico
+              </h2>
+              <p class="portfolio-card__text">
+                Landing Page orientada a captar clientes para servicios de
+                derecho penal, familiar y civil.
+              </p>
+              <div class="portfolio-card__tags"><span>Landing</span></div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://lading.abogados-af.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <a
+              href="https://landing.grupoessa.mx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/landing-grupoessa-mx-2026-06-27-14_53_41.webp"
+                alt="Landing Grupo ESSA"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Grupo ESSA</p>
+              <h2 class="portfolio-card__title">
+                Landing para productos aeroportuarios
+              </h2>
+              <p class="portfolio-card__text">
+                Landing diseñada para mostrar soluciones y productos
+                especializados para infraestructura aeroportuaria.
+              </p>
+              <div class="portfolio-card__tags"><span>Landing</span></div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://landing.grupoessa.mx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <a
+              href="https://melamina.soamobiliario.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/melamina-soa-mobiliario-2026-06-27-14_57_09.webp"
+                alt="Landing mobiliario de melamina"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">SOA Mobiliario</p>
+              <h2 class="portfolio-card__title">
+                Landing de mobiliario de melamina
+              </h2>
+              <p class="portfolio-card__text">
+                Landing enfocada en oficinas corporativas y mobiliario de
+                melamina con captación de cotizaciones.
+              </p>
+              <div class="portfolio-card__tags"><span>Landing</span></div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://melamina.soamobiliario.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <a
+              href="https://metalicos.soamobiliario.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/metalicos-soa-mobiliario-2026-06-27-14_57_23.webp"
+                alt="Landing mobiliario metálico"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">SOA Mobiliario</p>
+              <h2 class="portfolio-card__title">
+                Landing de mobiliario metálico
+              </h2>
+              <p class="portfolio-card__text">
+                Landing para líneas de mobiliario metálico industrial, comercial
+                y corporativo.
+              </p>
+              <div class="portfolio-card__tags"><span>Landing</span></div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://metalicos.soamobiliario.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="tienda shopify">
+            <a
+              href="https://www.mocoallure.com.mx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/mocoallure-mx-2026-06-27-15_00_12.webp"
+                alt="Ecommerce Moco Allure"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Moco Allure</p>
+              <h2 class="portfolio-card__title">Ecommerce de cosméticos</h2>
+              <p class="portfolio-card__text">
+                Tienda en línea para productos de maquillaje, skincare y
+                accesorios de belleza.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Tienda en línea</span><span>Shopify</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://www.mocoallure.com.mx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing wordpress">
+            <a
+              href="https://nubasys.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/nubasys-2026-06-27-14_53_22.webp"
+                alt="Landing Page Nubasys"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Nubasys</p>
+              <h2 class="portfolio-card__title">
+                Landing Page para tecnología e impresión
+              </h2>
+              <p class="portfolio-card__text">
+                Landing Page especializada en cartuchos, impresoras, redes y
+                soluciones tecnológicas.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Landing</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://nubasys.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://plasticruz.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/plasticruz-2026-06-27-15_00_40.webp"
+                alt="Sitio web Plasticruz"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Plasticruz</p>
+              <h2 class="portfolio-card__title">
+                Sitio web para reciclaje industrial
+              </h2>
+              <p class="portfolio-card__text">
+                Web corporativa para empresa dedicada a la fabricación y
+                comercialización de plástico reciclado.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://plasticruz.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing wordpress">
+            <a
+              href="https://plenavisum.com/oftalmologia-dr-rene-castro-gonzalez/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/plenavisum-oftalmologia-dr-rene-castro-gonzalez-2026-06-27-14_59_22.webp"
+                alt="Landing Plena Visum"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Plena Visum</p>
+              <h2 class="portfolio-card__title">
+                Landing para clínica oftalmológica
+              </h2>
+              <p class="portfolio-card__text">
+                Landing enfocada en consulta, cirugía refractiva y captación de
+                pacientes mediante WhatsApp.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Landing</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://plenavisum.com/oftalmologia-dr-rene-castro-gonzalez/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing">
+            <a
+              href="https://soa-mobiliario.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/soa-mobiliario-2026-06-27-14_57_36.webp"
+                alt="Landing Page SOA Mobiliario"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">SOA Mobiliario</p>
+              <h2 class="portfolio-card__title">Landing Page corporativo</h2>
+              <p class="portfolio-card__text">
+                Landing Page para empresa especializada en mobiliario
+                corporativo, médico, escolar, urbano e institucional.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Landing</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://soa-mobiliario.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web wordpress">
+            <a
+              href="https://starken.com.mx/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/starken-mx-2026-06-27-14_55_50.webp"
+                alt="Sitio web Starken"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Starken</p>
+              <h2 class="portfolio-card__title">
+                Sitio web para interiores premium
+              </h2>
+              <p class="portfolio-card__text">
+                Desarrollo de sitio web para cocinas, closets, muebles de baño y
+                soluciones residenciales de alta gama.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Sitio Web</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://starken.com.mx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing wordpress">
+            <a
+              href="https://telasygalonesconcevida.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/telasygalonesconcevida-2026-06-27-15_02_52.webp"
+                alt="Landing Telas Litúrgicas Concevida"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">Telas Litúrgicas Concevida</p>
+              <h2 class="portfolio-card__title">
+                Landing para textiles litúrgicos
+              </h2>
+              <p class="portfolio-card__text">
+                Landing enfocada en la venta de telas, galones y accesorios
+                litúrgicos importados con generación de prospectos por WhatsApp.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Landing</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://telasygalonesconcevida.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="landing wordpress">
+            <a
+              href="https://zaratesolucionesfinancieras.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-card__media"
+            >
+              <img
+                src="assets/imgs/portfolio/zaratesolucionesfinancieras-2026-06-27-14_58_46.webp"
+                alt="Landing María Zárate"
+                loading="lazy"
+                width="600"
+                height="420"
+              />
+            </a>
+            <div class="portfolio-card__body">
+              <p class="portfolio-card__client">María Zárate</p>
+              <h2 class="portfolio-card__title">
+                Landing para coach financiera
+              </h2>
+              <p class="portfolio-card__text">
+                Landing diseñada para la captación de clientes interesados en
+                educación financiera, inversiones y asesoría personalizada.
+              </p>
+              <div class="portfolio-card__tags">
+                <span>Landing</span><span>WordPress</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a
+                  href="https://zaratesolucionesfinancieras.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--outline btn--sm"
+                  >Visitar sitio</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- CTA FINAL                                     -->
+      <!-- ============================================ -->
+      <section class="cta-final" id="contacto" aria-label="Contacto">
+        <div class="cta-final__glow" aria-hidden="true"></div>
+        <div class="container">
+          <div class="cta-final__inner">
+            <p class="eyebrow" style="display: flex; justify-content: center">
+              // Siguiente paso
+            </p>
+            <h2 class="cta-final__title">
+              ¿Tu proyecto podría ser el siguiente?
+            </h2>
+            <p class="cta-final__subtitle">
+              Cuéntame qué tienes en mente y construyamos algo igual de sólido.
+            </p>
+            <div style="display: flex; justify-content: center">
+              <a
+                href="https://wa.me/523348217208"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--primary btn--lg"
+                style="width: auto"
+              >
+                Hablemos
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3.5 8h9M8.5 3.5 13 8l-4.5 4.5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                        -->
+    <!-- ============================================ -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo">
+            <img
+              class="footer__logo-img"
+              src="assets/imgs/logo-horizontal-blanco.png"
+              alt="Logo Carlos Martínez Desarrollo Web y Marketing Digital"
+            />
+          </a>
+          <p class="footer__tagline">
+            Desarrollo web y marketing digital con enfoque en resultados.
+          </p>
+        </div>
+
+        <div class="footer__col">
+          <h4>Navegación</h4>
+          <a href="index.html">Inicio</a>
+          <a href="portfolio.html">Portafolio</a>
+          <!-- <a href="planes.html">Planes</a> -->
+        </div>
+
+        <div class="footer__col">
+          <h4>Contacto</h4>
+          <a
+            href="https://wa.me/523348217208"
+            target="_blank"
+            rel="noopener noreferrer"
+            >+52 (1) 33 4821 7208</a
+          >
+          <a href="mailto:carlos.m.webs@gmail.com">carlos.m.webs@gmail.com</a>
+          <span class="footer__location">Guadalajara, Jalisco, México</span>
+        </div>
+
+        <div class="footer__col footer_col_socials">
+          <h4>Redes</h4>
+          <div class="footer__socials">
+            <!-- <a
+              href="https://github.com/carlosmartinez"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.58 2 12.25c0 4.49 2.87 8.3 6.84 9.65.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.34-1.11.62-1.36-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.6.69.49C19.14 20.55 22 16.74 22 12.25 22 6.58 17.52 2 12 2Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/carlosmartinez"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.34 18.5V10.3H5.78v8.2h2.56ZM7.06 9.2c.9 0 1.45-.6 1.45-1.34-.02-.76-.55-1.34-1.43-1.34-.87 0-1.45.58-1.45 1.34 0 .75.56 1.34 1.41 1.34h.02Zm12.05 9.3v-4.7c0-2.52-1.34-3.7-3.14-3.7-1.45 0-2.1.8-2.46 1.36V10.3h-2.55c.03.7 0 8.2 0 8.2h2.55v-4.58c0-.24.02-.49.1-.66.21-.49.66-1 1.45-1 1.02 0 1.43.78 1.43 1.92v4.32h2.62Z"
+                />
+              </svg>
+            </a> -->
+            <a
+              href="https://www.instagram.com/carlos.mtz.webs/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.2c2.7 0 3 0 4.1.06 1 .05 1.6.2 1.9.34.5.2.8.43 1.2.8.4.4.6.7.8 1.2.14.3.3.9.34 1.9.05 1.1.06 1.4.06 4.1s0 3-.06 4.1c-.05 1-.2 1.6-.34 1.9-.2.5-.43.8-.8 1.2-.4.4-.7.6-1.2.8-.3.14-.9.3-1.9.34-1.1.05-1.4.06-4.1.06s-3 0-4.1-.06c-1-.05-1.6-.2-1.9-.34-.5-.2-.8-.43-1.2-.8-.4-.4-.6-.7-.8-1.2-.14-.3-.3-.9-.34-1.9C2.2 15 2.2 14.7 2.2 12s0-3 .06-4.1c.05-1 .2-1.6.34-1.9.2-.5.43-.8.8-1.2.4-.4.7-.6 1.2-.8.3-.14.9-.3 1.9-.34C7.6 3.6 7.9 3.6 10.6 3.6h1.4Zm0 1.8H10.6c-2.6 0-2.9 0-3.96.06-.84.04-1.3.18-1.6.3-.4.16-.69.34-1 .65-.3.3-.49.6-.65 1-.12.3-.26.76-.3 1.6C3 9.13 3 9.43 3 12s0 2.87.06 3.96c.04.84.18 1.3.3 1.6.16.4.34.69.65 1 .3.3.6.49 1 .65.3.12.76.26 1.6.3 1.06.06 1.36.06 3.96.06h2.8c2.6 0 2.9 0 3.96-.06.84-.04 1.3-.18 1.6-.3.4-.16.69-.34 1-.65.3-.3.49-.6.65-1 .12-.3.26-.76.3-1.6.06-1.09.06-1.36.06-3.96s0-2.87-.06-3.96c-.04-.84-.18-1.3-.3-1.6a2.7 2.7 0 0 0-.65-1c-.3-.3-.6-.49-1-.65-.3-.12-.76-.26-1.6-.3C14.87 4 14.6 4 12 4ZM12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 1.8a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Zm4.95-3.15a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61592552905246"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container footer__bottom">
+        <p>&copy; 2026 Carlos Mtz. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/523348217208"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="float-whatsapp"
+      aria-label="Contactar por WhatsApp"
+    >
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.42 1.27 4.86L2 22l5.34-1.4a9.93 9.93 0 0 0 4.7 1.2h.01c5.5 0 9.96-4.46 9.96-9.96C22 6.46 17.54 2 12.04 2Zm5.84 14.12c-.25.7-1.45 1.34-2 1.42-.5.08-1.14.11-1.84-.12-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.15-4.94-4.34-.15-.2-1.18-1.57-1.18-3 0-1.42.74-2.12 1-2.4.25-.28.55-.35.74-.35h.53c.17 0 .4-.06.62.48.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.16.32-.31.49-.15.17-.32.38-.46.51-.15.14-.3.3-.13.6.18.3.79 1.31 1.7 2.13 1.17 1.04 2.16 1.36 2.46 1.51.3.15.48.13.66-.05.18-.18.74-.86.94-1.16.2-.3.4-.25.66-.15.27.1 1.7.8 1.99.95.3.15.49.22.56.34.07.13.07.74-.18 1.45Z"
+        />
+      </svg>
+    </a>
+
+    <script src="script.js"></script>
+  </body>
+</html>

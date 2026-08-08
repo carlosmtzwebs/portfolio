@@ -1,0 +1,211 @@
+/* ===================================================================
+   CARLOS MARTÍNEZ — PORTFOLIO
+   JavaScript vanilla — sin dependencias externas
+   =================================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  /* ============================================
+     1. NAVBAR :: cambio de fondo al hacer scroll
+     ============================================ */
+  const navbar = document.getElementById("navbar");
+
+  const handleNavbarScroll = () => {
+    if (window.scrollY > 24) {
+      navbar.classList.add("is-scrolled");
+    } else {
+      navbar.classList.remove("is-scrolled");
+    }
+  };
+  handleNavbarScroll();
+  window.addEventListener("scroll", handleNavbarScroll, { passive: true });
+
+  /* ============================================
+     2. NAVBAR :: menú móvil
+     ============================================ */
+  const navToggle = document.getElementById("navToggle");
+  const navMenu = document.getElementById("navMenu");
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = navMenu.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+      navToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Cerrar menú" : "Abrir menú",
+      );
+      document.body.style.overflow = isOpen ? "hidden" : "";
+    });
+
+    // Cerrar el menú al elegir una opción
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      });
+    });
+  }
+
+  /* ============================================
+     3. REVEAL ON SCROLL
+     Anima los elementos marcados con [data-reveal]
+     cuando entran al viewport.
+     ============================================ */
+  const revealEls = document.querySelectorAll("[data-reveal]");
+
+  if ("IntersectionObserver" in window && revealEls.length) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
+    );
+
+    revealEls.forEach((el) => revealObserver.observe(el));
+  } else {
+    // Fallback: si no hay soporte, mostrar todo de inmediato
+    revealEls.forEach((el) => el.classList.add("is-visible"));
+  }
+
+  /* ============================================
+     4. CONTADOR ANIMADO :: sección de métricas
+     ============================================ */
+  const counters = document.querySelectorAll("[data-counter]");
+
+  const animateCounter = (el) => {
+    const target = parseInt(el.dataset.target, 10) || 0;
+    const duration = 1400; // ms
+    const start = performance.now();
+
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      // easeOutCubic para una desaceleración elegante
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = target;
+      }
+    };
+    requestAnimationFrame(step);
+  };
+
+  if ("IntersectionObserver" in window && counters.length) {
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+
+    counters.forEach((el) => counterObserver.observe(el));
+  } else {
+    counters.forEach((el) => {
+      el.textContent = el.dataset.target;
+    });
+  }
+
+  /* ============================================
+     5. FORMULARIO DE CONTACTO
+     Validación básica + estado simulado de envío.
+     (Conectar a un backend o servicio de email real
+     en producción, p. ej. Formspree, Resend, etc.)
+     ============================================ */
+  const contactForm = document.getElementById("contactForm");
+  const formStatus = document.getElementById("formStatus");
+
+  if (contactForm) {
+    emailjs.init({
+      publicKey: "AX-rGwetu0hgfosF5",
+    });
+
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = contactForm.name.value.trim();
+      const email = contactForm.email.value.trim();
+      const message = contactForm.message.value.trim();
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!name || !email || !message) {
+        showFormStatus("Por favor completa todos los campos.", "error");
+        return;
+      }
+
+      if (!emailPattern.test(email)) {
+        showFormStatus("Ingresa un correo electrónico válido.", "error");
+        return;
+      }
+
+      const submitBtn = contactForm.querySelector(".contact-form__submit");
+      const btnText = submitBtn.querySelector(".btn__text");
+      const originalText = btnText.textContent;
+
+      submitBtn.disabled = true;
+      btnText.textContent = "Enviando...";
+
+      emailjs
+        .sendForm("service_5hl7ybl", "template_zqq55hr", contactForm)
+        .then(() => {
+          showFormStatus(
+            "¡Mensaje enviado! Te responderé muy pronto.",
+            "success",
+          );
+          contactForm.reset();
+        })
+        .catch((error) => {
+          console.error(error);
+          showFormStatus("Ocurrió un error al enviar el mensaje.", "error");
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          btnText.textContent = originalText;
+        });
+    });
+  }
+
+  function showFormStatus(text, type) {
+    if (!formStatus) return;
+
+    formStatus.textContent = text;
+    formStatus.classList.remove("is-success", "is-error");
+    formStatus.classList.add(type === "success" ? "is-success" : "is-error");
+  }
+
+  /* ============================================
+     6. PORTAFOLIO :: filtros por categoría
+     (solo aplica si existen estos elementos en la página)
+     ============================================ */
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const portfolioCards = document.querySelectorAll(".portfolio-card");
+
+  if (filterButtons.length && portfolioCards.length) {
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.dataset.filter;
+
+        filterButtons.forEach((b) => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+
+        portfolioCards.forEach((card) => {
+          const categories = card.dataset.category || "";
+          const matches = filter === "todos" || categories.includes(filter);
+          card.classList.toggle("is-hidden", !matches);
+        });
+      });
+    });
+  }
+});

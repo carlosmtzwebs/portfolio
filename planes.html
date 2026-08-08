@@ -1,0 +1,1532 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planes y precios — Carlos Mtz</title>
+    <!-- ===== Fuentes ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      :root {
+        --bg: #0a0e17;
+        --bg-alt: #0d1220;
+        --card: #10182a;
+        --card-hover: #131d33;
+        --border: #202b42;
+        --border-soft: #1a2438;
+        --accent: #2fe8ac;
+        --accent-dim: #1fb888;
+        --accent-soft: rgba(47, 232, 172, 0.1);
+        --text: #eef1f6;
+        --text-dim: #93a0b8;
+        --text-faint: #5c6883;
+        --radius: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .plans-section {
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        padding: 140px 24px 80px 24px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .plans-section::before {
+        content: "";
+        position: absolute;
+        top: -180px;
+        right: -180px;
+        width: 520px;
+        height: 520px;
+        background: radial-gradient(
+          circle,
+          rgba(47, 232, 172, 0.14) 0%,
+          rgba(47, 232, 172, 0) 70%
+        );
+        pointer-events: none;
+      }
+
+      .plans-wrap {
+        max-width: 1120px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .plans-header {
+        text-align: center;
+        max-width: 620px;
+        margin: 0 auto 20px;
+      }
+
+      .eyebrow {
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        margin-bottom: 14px;
+        display: block;
+      }
+
+      .plans-header h2 {
+        font-size: clamp(28px, 4vw, 38px);
+        font-weight: 800;
+        line-height: 1.2;
+        margin: 0 0 14px;
+        letter-spacing: -0.01em;
+      }
+
+      .plans-header p {
+        color: var(--text-dim);
+        font-size: 15.5px;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* included-in-all strip */
+      .included-strip {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin: 36px 0 44px;
+      }
+      .included-chip {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--card);
+        border: 1px solid var(--border-soft);
+        border-radius: 999px;
+        padding: 8px 16px;
+        font-size: 13px;
+        color: var(--text-dim);
+      }
+      .included-chip svg {
+        flex-shrink: 0;
+        width: 14px;
+        height: 14px;
+        color: var(--accent);
+      }
+
+      /* tabs */
+      .tabs {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        background: var(--bg-alt);
+        border: 1px solid var(--border-soft);
+        border-radius: 999px;
+        padding: 6px;
+        width: fit-content;
+        margin: 0 auto 48px;
+      }
+      .tab-btn {
+        appearance: none;
+        border: none;
+        background: transparent;
+        color: var(--text-dim);
+        font-family: inherit;
+        font-size: 13.5px;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        white-space: nowrap;
+      }
+      .tab-btn:hover {
+        color: var(--text);
+      }
+      .tab-btn.active {
+        background: var(--accent);
+        color: #06120d;
+      }
+
+      /* grid */
+      .plans-grid {
+        display: none;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        animation: fadeIn 0.35s ease;
+      }
+      .plans-grid.active {
+        display: grid;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .plan-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 30px 26px 26px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transition:
+          transform 0.25s ease,
+          border-color 0.25s ease;
+      }
+      .plan-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--border-soft);
+      }
+
+      .plan-card.popular {
+        border-color: var(--accent);
+        background: linear-gradient(
+          180deg,
+          rgba(47, 232, 172, 0.06) 0%,
+          var(--card) 140px
+        );
+      }
+
+      .popular-badge {
+        position: absolute;
+        top: -13px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--accent);
+        color: #06120d;
+        font-size: 11.5px;
+        font-weight: 700;
+        padding: 5px 14px;
+        border-radius: 999px;
+        letter-spacing: 0.02em;
+      }
+
+      .plan-name {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 6px;
+        text-transform: uppercase;
+      }
+      .plan-tagline {
+        font-size: 13.5px;
+        color: var(--text-dim);
+        margin: 0 0 20px;
+        line-height: 1.5;
+        min-height: 40px;
+      }
+
+      .plan-price {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        margin-bottom: 2px;
+      }
+      .plan-price .amount {
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      .plan-price .currency {
+        font-size: 14px;
+        color: var(--text-dim);
+        font-weight: 600;
+      }
+      .plan-price-note {
+        font-size: 12.5px;
+        color: var(--text-faint);
+        margin-bottom: 22px;
+      }
+
+      .plan-price-original {
+        font-size: 20px;
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        margin-bottom: 2px;
+        text-decoration: line-through;
+        color: var(--text-faint);
+      }
+      .plan-price-original .currency {
+        font-size: 12px;
+        color: var(--text-faint);
+        font-weight: 600;
+      }
+
+      .plan-divider {
+        border: none;
+        border-top: 1px solid var(--border-soft);
+        margin: 0 0 20px;
+      }
+
+      .plan-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 26px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex-grow: 1;
+      }
+      .plan-features li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 13.5px;
+        color: var(--text);
+        line-height: 1.45;
+      }
+      .plan-features li svg {
+        flex-shrink: 0;
+        width: 16px;
+        height: 16px;
+        margin-top: 2px;
+        color: var(--accent);
+      }
+      .plan-features li.muted {
+        color: var(--text-faint);
+      }
+      .plan-features li.muted svg {
+        color: var(--text-faint);
+      }
+
+      .plan-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 12px 20px;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--text);
+      }
+      .plan-cta:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .plan-card.popular .plan-cta {
+        background: var(--accent);
+        color: #06120d;
+        border-color: var(--accent);
+      }
+      .plan-card.popular .plan-cta:hover {
+        background: var(--accent-dim);
+        color: #06120d;
+      }
+
+      .plans-footnote {
+        text-align: center;
+        font-size: 12.5px;
+        color: var(--text-faint);
+        margin-top: 36px;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 860px) {
+        .plans-grid {
+          grid-template-columns: 1fr;
+        }
+        .plans-grid.active {
+          display: flex;
+          flex-direction: column;
+        }
+        .tabs {
+          width: 100%;
+          overflow-x: auto;
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Botón accesible para saltar al contenido -->
+    <a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+    <!-- ============================================ -->
+    <!-- NAVBAR                                        -->
+    <!-- ============================================ -->
+    <header class="navbar" id="navbar" role="banner">
+      <nav class="navbar__inner" aria-label="Navegación principal">
+        <a
+          href="index.html"
+          class="navbar__logo"
+          aria-label="Carlos Martínez — Inicio"
+        >
+          <img
+            class="navbar__logo-img"
+            src="assets/imgs/logo-horizontal-blanco.png"
+            alt="Logo Carlos Martínez Desarrollo Web y Marketing Digital"
+          />
+        </a>
+
+        <button
+          class="navbar__toggle"
+          id="navToggle"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="navbar__menu" id="navMenu">
+          <ul class="navbar__links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="portfolio.html">Portafolio</a></li>
+            <li><a href="planes.html" class="is-active">Planes</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+          </ul>
+          <a
+            href="https://wa.me/523348217208"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--primary btn--sm navbar__cta"
+            >Hablemos</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <section class="plans-section">
+      <div class="plans-wrap">
+        <div class="plans-header">
+          <span class="eyebrow">// Planes y precios</span>
+          <h2 class="hero__title">Paquetes claros, sin sorpresas</h2>
+          <p>
+            Elige el tipo de proyecto que necesitas y compara los 3 niveles.
+            Cada paquete incluye hosting, dominio y SEO básico del primer año —
+            tú solo te preocupas de tu negocio.
+          </p>
+        </div>
+
+        <div class="included-strip">
+          <div class="included-chip">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            >
+              <path d="M20 6 9 17l-5-5" /></svg
+            >Hosting + dominio incluidos
+          </div>
+          <div class="included-chip">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            >
+              <path d="M20 6 9 17l-5-5" /></svg
+            >Diseño responsivo 100%
+          </div>
+          <div class="included-chip">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            >
+              <path d="M20 6 9 17l-5-5" /></svg
+            >Correos profesionales
+          </div>
+          <div class="included-chip">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            >
+              <path d="M20 6 9 17l-5-5" /></svg
+            >Meses de soporte gratis
+          </div>
+        </div>
+
+        <div class="tabs" role="tablist">
+          <button class="tab-btn" data-tab="informativa">
+            Web informativa
+          </button>
+          <button class="tab-btn active" data-tab="landing">
+            Landing Page
+          </button>
+          <button class="tab-btn" data-tab="ecommerce">E-commerce</button>
+        </div>
+
+        <!-- WEB INFORMATIVA -->
+        <div class="plans-grid" id="grid-informativa">
+          <div class="plan-card">
+            <div class="plan-name">Sitio Web Empresarial Starter</div>
+            <p class="plan-tagline">
+              Ideal para negocios que quieren comenzar a tener una presencia
+              profesional en internet.
+            </p>
+            <div class="plan-price-original">
+              <span class="currency">$</span><span class="amount">6,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price">
+              <span class="currency">$</span><span class="amount">5,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price-note">Pago único</div>
+            <hr class="plan-divider" />
+            <ul class="plan-features">
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Hasta 5 páginas (Inicio, Nosotros, Servicios, Contacto, etc.)
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Hosting + dominio, 1er año incluido
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >5 correos profesionales de 1 GB
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Formulario de contacto + botón de WhatsApp
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >3 meses de soporte básico
+              </li>
+            </ul>
+            <a
+              class="plan-cta"
+              href="https://wa.me/523348217208?text=Hola%2C%20me%20interesa%20el%20plan%20Sitio%20Web%20Empresarial%20Starter"
+              target="_blank"
+              rel="noopener"
+              >Elegir Starter</a
+            >
+          </div>
+
+          <div class="plan-card popular">
+            <span class="popular-badge">Más elegido</span>
+            <div class="plan-name">Sitio Web Empresarial Business ⭐</div>
+            <p class="plan-tagline">
+              Ideal para empresas que necesitan una presencia profesional más
+              completa.
+            </p>
+            <div class="plan-price-original">
+              <span class="currency">$</span><span class="amount">9,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price">
+              <span class="currency">$</span><span class="amount">8,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price-note">Pago único</div>
+            <hr class="plan-divider" />
+            <ul class="plan-features">
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Hasta 10 páginas (Inicio, Nosotros, Servicios/Catálogo,
+                Contacto, Blog, etc.)
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Todo lo del plan Starter
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Google Analytics + Search Console
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Hasta 10 correos profesionales de 1 GB
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >SEO on-page básico, lista para Google Ads
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >6 meses de mantenimiento básico gratis
+              </li>
+            </ul>
+            <a
+              class="plan-cta"
+              href="https://wa.me/523348217208?text=Hola%2C%20me%20interesa%20el%20plan%20Sitio%20Web%20Empresarial%20Business%20⭐"
+              target="_blank"
+              rel="noopener"
+              >Elegir Business</a
+            >
+          </div>
+
+          <div class="plan-card">
+            <div class="plan-name">Sitio Web Empresarial Premium</div>
+            <p class="plan-tagline">
+              La solución más completa para empresas más grandes.
+            </p>
+            <div class="plan-price-original">
+              <span class="currency">$</span><span class="amount">13,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price">
+              <span class="currency">$</span><span class="amount">12,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price-note">Pago único</div>
+            <hr class="plan-divider" />
+            <ul class="plan-features">
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Hasta 20 páginas (Inicio, Nosotros, Servicios y Catálogo,
+                Contacto, Blog, etc.)
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Todo lo del plan Business
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Hasta 20 correos profesionales de 1 GB
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >SEO on-page avanzado por página, lista para Google Ads
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Integraciones (pixel de Facebook, Conversiones de Google Ads,
+                formularios avanzados, etc.)
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >1 mes de soporte prioritario con actualizaciones y cambios
+                ilimitados
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Video tutorial personalizado para administrar tu sitio web
+              </li>
+            </ul>
+            <a
+              class="plan-cta"
+              href="https://wa.me/523348217208?text=Hola%2C%20me%20interesa%20el%20plan%20Sitio%20Web%20Empresarial%20Premium"
+              target="_blank"
+              rel="noopener"
+              >Elegir Premium</a
+            >
+          </div>
+        </div>
+
+        <!-- LANDING PAGE -->
+        <div class="plans-grid active" id="grid-landing">
+          <div class="plan-card">
+            <div class="plan-name">Landing Page Starter</div>
+            <p class="plan-tagline">
+              Ideal para conseguir tus primeros clientes y comenzar tu presencia
+              en internet.
+            </p>
+            <div class="plan-price-original">
+              <span class="currency">$</span><span class="amount">4,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price">
+              <span class="currency">$</span><span class="amount">3,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price-note">Pago único</div>
+            <hr class="plan-divider" />
+            <ul class="plan-features">
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Landing de una sola página, diseño enfocado en conversión
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Hosting + dominio, 1er año incluido
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >5 correos profesionales de 1 GB
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Formulario de contacto + botón de WhatsApp
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >3 meses de soporte básico
+              </li>
+            </ul>
+            <a
+              class="plan-cta"
+              href="https://wa.me/523348217208?text=Hola%2C%20me%20interesa%20el%20plan%20Landing%20Page%20Starter"
+              target="_blank"
+              rel="noopener"
+              >Elegir Starter</a
+            >
+          </div>
+
+          <div class="plan-card popular">
+            <span class="popular-badge">Más elegido</span>
+            <div class="plan-name">Landing Page Business ⭐</div>
+            <p class="plan-tagline">
+              Ideal para negocios que buscan generar más clientes y medir
+              resultados.
+            </p>
+            <div class="plan-price-original">
+              <span class="currency">$</span><span class="amount">6,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price">
+              <span class="currency">$</span><span class="amount">5,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price-note">Pago único</div>
+            <hr class="plan-divider" />
+            <ul class="plan-features">
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Landing con galería, testimonios y beneficios
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Todo lo del plan Starter
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >SEO on-page básico, lista para Google Ads
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Google Analytics + Search Console
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Hasta 10 correos profesionales de 1 GB
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >6 meses de soporte básico gratis
+              </li>
+            </ul>
+            <a
+              class="plan-cta"
+              href="https://wa.me/523348217208?text=Hola%2C%20me%20interesa%20el%20plan%20Landing%20Page%20Business%20⭐"
+              target="_blank"
+              rel="noopener"
+              >Elegir Business</a
+            >
+          </div>
+
+          <div class="plan-card">
+            <div class="plan-name">Landing Page Premium</div>
+            <p class="plan-tagline">
+              La opción más completa para empresas que buscan resultados
+              grandes.
+            </p>
+            <div class="plan-price-original">
+              <span class="currency">$</span><span class="amount">9,490</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price">
+              <span class="currency">$</span><span class="amount">8,490</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price-note">Pago único</div>
+            <hr class="plan-divider" />
+            <ul class="plan-features">
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Landing con animaciones y copy persuasivo
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Todo lo del plan Business
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Optimización de velocidad avanzada
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >SEO on-page avanzado, lista para Google Ads
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Reporte mensual de resultados
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >1 mes de soporte prioritario y actualizaciones de contenido
+                ilimitadas
+              </li>
+            </ul>
+            <a
+              class="plan-cta"
+              href="https://wa.me/523348217208?text=Hola%2C%20me%20interesa%20el%20plan%20Landing%20Page%20Premium"
+              target="_blank"
+              rel="noopener"
+              >Elegir Premium</a
+            >
+          </div>
+        </div>
+
+        <!-- ECOMMERCE -->
+        <div class="plans-grid" id="grid-ecommerce">
+          <div class="plan-card">
+            <div class="plan-name">Tienda en Línea Starter</div>
+            <p class="plan-tagline">
+              Ideal para comenzar a vender por internet.
+            </p>
+            <div class="plan-price-original">
+              <span class="currency">$</span><span class="amount">8,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price">
+              <span class="currency">$</span><span class="amount">7,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price-note">Pago único</div>
+            <hr class="plan-divider" />
+            <ul class="plan-features">
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Carga inicial de hasta 20 productos
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Pasarela de pago configurada
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Hosting + dominio, 1er año incluido
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Formulario de contacto + botón de WhatsApp
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >5 correos profesionales de 1 GB
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Capacitación básica para subir productos
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >3 meses de soporte básico
+              </li>
+            </ul>
+            <a
+              class="plan-cta"
+              href="https://wa.me/523348217208?text=Hola%2C%20me%20interesa%20el%20plan%20Tienda%20en%20Línea%20Starter"
+              target="_blank"
+              rel="noopener"
+              >Elegir Básico</a
+            >
+          </div>
+
+          <div class="plan-card popular">
+            <span class="popular-badge">Más elegido</span>
+            <div class="plan-name">Tienda en Línea Business ⭐</div>
+            <p class="plan-tagline">
+              La mejor opción para negocios en crecimiento.
+            </p>
+            <div class="plan-price-original">
+              <span class="currency">$</span><span class="amount">11,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price">
+              <span class="currency">$</span><span class="amount">10,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price-note">Pago único</div>
+            <hr class="plan-divider" />
+            <ul class="plan-features">
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Carga inicial de hasta 50 productos
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Todo lo del plan Starter
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Hasta 10 correos profesionales de 1 GB
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Cupones de descuento y promociones configurados
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Google Analytics + Search Console
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >SEO on-page básico para fichas de producto
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >6 meses de soporte básico
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Video tutorial personalizado para administrar tu tienda en
+                línea
+              </li>
+            </ul>
+            <a
+              class="plan-cta"
+              href="https://wa.me/523348217208?text=Hola%2C%20me%20interesa%20el%20plan%20Tienda%20en%20Línea%20Business%20⭐"
+              target="_blank"
+              rel="noopener"
+              >Elegir Business</a
+            >
+          </div>
+
+          <div class="plan-card">
+            <div class="plan-name">Tienda en Línea Premium</div>
+            <p class="plan-tagline">
+              La solución más completa para vender por internet.
+            </p>
+            <div class="plan-price-original">
+              <span class="currency">$</span><span class="amount">16,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price">
+              <span class="currency">$</span><span class="amount">15,990</span
+              ><span class="currency">MXN</span>
+            </div>
+            <div class="plan-price-note">Pago único</div>
+            <hr class="plan-divider" />
+            <ul class="plan-features">
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Carga inicial de hasta 100 productos
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Todo lo del plan Business
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >SEO on-page avanzado para fichas de producto
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Integraciones (pixel de Facebook, Conversiones de Google Ads,
+                formularios avanzados, etc.)
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >Hasta 20 correos profesionales de 1 GB
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M20 6 9 17l-5-5" /></svg
+                >1 mes de soporte prioritario con actualizaciones y cambios
+                ilimitados
+              </li>
+            </ul>
+            <a
+              class="plan-cta"
+              href="https://wa.me/523348217208?text=Hola%2C%20me%20interesa%20el%20plan%20Tienda%20en%20Línea%20Premium"
+              target="_blank"
+              rel="noopener"
+              >Elegir Premium</a
+            >
+          </div>
+        </div>
+
+        <p class="plans-footnote">
+          Precios finales con IVA incluido, pueden ajustarse según el alcance
+          definitivo del proyecto.<br />Al terminar el mantenimiento gratuito,
+          continúas en el plan de mantenimiento correspondiente o el que
+          prefieras.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                        -->
+    <!-- ============================================ -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo">
+            <img
+              class="footer__logo-img"
+              src="assets/imgs/logo-horizontal-blanco.png"
+              alt="Logo Carlos Martínez Desarrollo Web y Marketing Digital"
+            />
+          </a>
+          <p class="footer__tagline">
+            Desarrollo web y marketing digital con enfoque en resultados.
+          </p>
+        </div>
+
+        <div class="footer__col">
+          <h4>Navegación</h4>
+          <a href="index.html">Inicio</a>
+          <a href="portfolio.html">Portafolio</a>
+          <a href="planes.html">Planes</a>
+        </div>
+
+        <div class="footer__col">
+          <h4>Contacto</h4>
+          <a
+            href="https://wa.me/523348217208"
+            target="_blank"
+            rel="noopener noreferrer"
+            >+52 (1) 33 4821 7208</a
+          >
+          <a href="mailto:carlos.m.webs@gmail.com">carlos.m.webs@gmail.com</a>
+          <span class="footer__location">Guadalajara, Jalisco, México</span>
+        </div>
+
+        <div class="footer__col footer_col_socials">
+          <h4>Redes</h4>
+          <div class="footer__socials">
+            <!-- <a
+              href="https://github.com/carlosmartinez"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.58 2 12.25c0 4.49 2.87 8.3 6.84 9.65.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.34-1.11.62-1.36-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.6.69.49C19.14 20.55 22 16.74 22 12.25 22 6.58 17.52 2 12 2Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/carlosmartinez"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14ZM8.34 18.5V10.3H5.78v8.2h2.56ZM7.06 9.2c.9 0 1.45-.6 1.45-1.34-.02-.76-.55-1.34-1.43-1.34-.87 0-1.45.58-1.45 1.34 0 .75.56 1.34 1.41 1.34h.02Zm12.05 9.3v-4.7c0-2.52-1.34-3.7-3.14-3.7-1.45 0-2.1.8-2.46 1.36V10.3h-2.55c.03.7 0 8.2 0 8.2h2.55v-4.58c0-.24.02-.49.1-.66.21-.49.66-1 1.45-1 1.02 0 1.43.78 1.43 1.92v4.32h2.62Z"
+                />
+              </svg>
+            </a> -->
+            <a
+              href="https://www.instagram.com/carlos.mtz.webs/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.2c2.7 0 3 0 4.1.06 1 .05 1.6.2 1.9.34.5.2.8.43 1.2.8.4.4.6.7.8 1.2.14.3.3.9.34 1.9.05 1.1.06 1.4.06 4.1s0 3-.06 4.1c-.05 1-.2 1.6-.34 1.9-.2.5-.43.8-.8 1.2-.4.4-.7.6-1.2.8-.3.14-.9.3-1.9.34-1.1.05-1.4.06-4.1.06s-3 0-4.1-.06c-1-.05-1.6-.2-1.9-.34-.5-.2-.8-.43-1.2-.8-.4-.4-.6-.7-.8-1.2-.14-.3-.3-.9-.34-1.9C2.2 15 2.2 14.7 2.2 12s0-3 .06-4.1c.05-1 .2-1.6.34-1.9.2-.5.43-.8.8-1.2.4-.4.7-.6 1.2-.8.3-.14.9-.3 1.9-.34C7.6 3.6 7.9 3.6 10.6 3.6h1.4Zm0 1.8H10.6c-2.6 0-2.9 0-3.96.06-.84.04-1.3.18-1.6.3-.4.16-.69.34-1 .65-.3.3-.49.6-.65 1-.12.3-.26.76-.3 1.6C3 9.13 3 9.43 3 12s0 2.87.06 3.96c.04.84.18 1.3.3 1.6.16.4.34.69.65 1 .3.3.6.49 1 .65.3.12.76.26 1.6.3 1.06.06 1.36.06 3.96.06h2.8c2.6 0 2.9 0 3.96-.06.84-.04 1.3-.18 1.6-.3.4-.16.69-.34 1-.65.3-.3.49-.6.65-1 .12-.3.26-.76.3-1.6.06-1.09.06-1.36.06-3.96s0-2.87-.06-3.96c-.04-.84-.18-1.3-.3-1.6a2.7 2.7 0 0 0-.65-1c-.3-.3-.6-.49-1-.65-.3-.12-.76-.26-1.6-.3C14.87 4 14.6 4 12 4ZM12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 1.8a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Zm4.95-3.15a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61592552905246"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container footer__bottom">
+        <p>&copy; 2026 Carlos Mtz. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- Botón flotante de contacto rápido -->
+    <a
+      href="https://wa.me/523348217208"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="float-whatsapp"
+      aria-label="Contactar por WhatsApp"
+    >
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.42 1.27 4.86L2 22l5.34-1.4a9.93 9.93 0 0 0 4.7 1.2h.01c5.5 0 9.96-4.46 9.96-9.96C22 6.46 17.54 2 12.04 2Zm5.84 14.12c-.25.7-1.45 1.34-2 1.42-.5.08-1.14.11-1.84-.12-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.15-4.94-4.34-.15-.2-1.18-1.57-1.18-3 0-1.42.74-2.12 1-2.4.25-.28.55-.35.74-.35h.53c.17 0 .4-.06.62.48.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.16.32-.31.49-.15.17-.32.38-.46.51-.15.14-.3.3-.13.6.18.3.79 1.31 1.7 2.13 1.17 1.04 2.16 1.36 2.46 1.51.3.15.48.13.66-.05.18-.18.74-.86.94-1.16.2-.3.4-.25.66-.15.27.1 1.7.8 1.99.95.3.15.49.22.56.34.07.13.07.74-.18 1.45Z"
+        />
+      </svg>
+    </a>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+
+    <script>
+      (function () {
+        var tabs = document.querySelectorAll(".tab-btn");
+        var grids = {
+          informativa: document.getElementById("grid-informativa"),
+          landing: document.getElementById("grid-landing"),
+          ecommerce: document.getElementById("grid-ecommerce"),
+        };
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            tabs.forEach(function (t) {
+              t.classList.remove("active");
+            });
+            tab.classList.add("active");
+
+            Object.keys(grids).forEach(function (key) {
+              grids[key].classList.remove("active");
+            });
+            grids[tab.dataset.tab].classList.add("active");
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
