@@ -1078,10 +1078,6 @@ textarea:focus-visible {
 /* ============================================
    13. TESTIMONIOS
    ============================================ */
-.testimonios {
-  display: none;
-}
-
 .testimonial-card {
   background: var(--c-surface);
   border: 1px solid var(--c-surface-2);
@@ -1152,7 +1148,7 @@ textarea:focus-visible {
 .cta-final__subtitle {
   color: var(--c-text-light-muted);
   font-size: 1.0625rem;
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-8);
 }
 
 .contact-form {
@@ -1607,4 +1603,200 @@ textarea:focus-visible {
 
 #main-dark {
   background-color: var(--c-bg-dark);
+}
+
+/* ============================================
+   19. CTA FINAL :: acciones (múltiples botones)
+   ============================================ */
+.cta-final__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+.cta-final__actions .btn--lg {
+  width: auto;
+}
+
+/* ============================================
+   20. SECCIÓN SEO :: ¿Qué debe tener una página web profesional?
+   ============================================ */
+.web-checklist {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+.web-checklist__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  background: var(--c-surface-light);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--c-text);
+}
+.web-checklist__icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--c-accent-soft);
+  color: var(--c-accent);
+}
+.section--dark .web-checklist__item {
+  background: var(--c-surface);
+  border-color: var(--c-surface-2);
+  color: var(--c-text-light);
+}
+.section__note {
+  margin-top: var(--space-8);
+  max-width: 46rem;
+  color: var(--c-text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+.link-inline {
+  color: var(--c-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--t-fast);
+}
+.link-inline:hover {
+  color: var(--c-accent-strong);
+}
+
+/* ============================================
+   21. PÁGINA CASO DE ESTUDIO
+   ============================================ */
+.case-hero {
+  padding: calc(var(--nav-h) + var(--space-24)) 0 var(--space-16);
+  background: var(--c-bg-dark);
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-12);
+  font-size: 0.85rem;
+  color: var(--c-text-light-muted);
+}
+.breadcrumb a {
+  color: var(--c-text-light-muted);
+  transition: color var(--t-fast);
+}
+.breadcrumb a:hover {
+  color: var(--c-accent);
+}
+.case-hero__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--c-text-light);
+  max-width: 780px;
+  margin-bottom: var(--space-4);
+}
+.case-hero__subtitle {
+  color: var(--c-text-light-muted);
+  font-size: 1.0625rem;
+  max-width: 640px;
+  margin-bottom: var(--space-12);
+}
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+  padding: var(--space-6);
+  border: 1px solid var(--c-surface-2);
+  border-radius: var(--radius-md);
+  background: var(--c-surface);
+}
+.case-meta__item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.case-meta__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--c-text-light-muted);
+}
+.case-meta__value {
+  font-weight: 700;
+  color: var(--c-text-light);
+}
+.case-hero__media {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--c-surface-2);
+}
+.case-hero__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.case-body {
+  padding: var(--space-24) 0;
+}
+.case-body__inner {
+  max-width: 860px;
+}
+.case-body h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-top: var(--space-12);
+  margin-bottom: var(--space-4);
+}
+.case-body h2:first-child {
+  margin-top: 0;
+}
+.case-body p {
+  color: var(--c-text-muted);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-4);
+  max-width: 700px;
+}
+.case-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+}
+.case-note {
+  margin-top: var(--space-12);
+  padding: var(--space-6);
+  border: 1px solid var(--c-border);
+  border-left: 3px solid var(--c-accent);
+  border-radius: var(--radius-md);
+  background: var(--c-surface-light);
+  color: var(--c-text) !important;
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .case-meta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .web-checklist {
+    grid-template-columns: 1fr;
+  }
+  .case-meta {
+    grid-template-columns: 1fr;
+  }
 }

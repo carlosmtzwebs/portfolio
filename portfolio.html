@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <!-- Google tag (gtag.js) -->
@@ -17,38 +17,47 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1120" />
 
     <!-- ===== SEO :: Meta principal ===== -->
-    <title>Portafolio — Carlos Martínez | Proyectos web reales</title>
+    <title>Portafolio de Diseño Web | Proyectos de Carlos Martínez</title>
     <meta
       name="description"
-      content="Explora los proyectos web que he desarrollado: sitios corporativos, tiendas en Shopify, landing pages y plataformas en WordPress y React."
+      content="Portafolio de diseño y desarrollo web de Carlos Martínez en Guadalajara: sitios corporativos, landing pages, tiendas en Shopify y proyectos en WordPress."
     />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="author" content="Carlos Martínez" />
     <link rel="canonical" href="https://carlosmtz.netlify.app/portfolio.html" />
 
     <!-- ===== Open Graph ===== -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Portafolio — Carlos Martínez" />
+    <meta
+      property="og:title"
+      content="Portafolio de Diseño Web | Proyectos de Carlos Martínez"
+    />
     <meta
       property="og:description"
-      content="Proyectos web reales: sitios corporativos, tiendas online, landing pages y plataformas a medida."
+      content="Proyectos web reales: sitios corporativos, tiendas online, landing pages y plataformas a medida en Guadalajara."
     />
     <meta
       property="og:image"
-      content="https://carlosmtz.netlify.app/assets/og-cover.jpg"
+      content="https://carlosmtz.netlify.app/assets/og-cover.webp"
     />
     <meta
       property="og:url"
       content="https://carlosmtz.netlify.app/portfolio.html"
     />
     <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="Carlos Martínez" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Portafolio — Carlos Martínez" />
+    <meta
+      name="twitter:title"
+      content="Portafolio de Diseño Web | Proyectos de Carlos Martínez"
+    />
     <meta
       name="twitter:description"
-      content="Proyectos web reales: sitios corporativos, tiendas online, landing pages y plataformas a medida."
+      content="Proyectos web reales: sitios corporativos, tiendas online, landing pages y plataformas a medida en Guadalajara."
     />
 
     <!-- ===== Favicon ===== -->
@@ -62,6 +71,43 @@
     />
 
     <link rel="stylesheet" href="style.css" />
+
+    <!-- ===== Schema.org ===== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://carlosmtz.netlify.app/#website",
+            "url": "https://carlosmtz.netlify.app/",
+            "name": "Carlos Martínez — Diseño de Páginas Web en Guadalajara",
+            "inLanguage": "es-MX",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Carlos Martínez",
+              "url": "https://carlosmtz.netlify.app/",
+              "logo": "https://carlosmtz.netlify.app/assets/imgs/logo-horizontal-blanco.png"
+            }
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://carlosmtz.netlify.app/portfolio.html#collection",
+            "url": "https://carlosmtz.netlify.app/portfolio.html",
+            "name": "Portafolio de Diseño Web | Proyectos de Carlos Martínez",
+            "description": "Proyectos web reales: sitios corporativos, tiendas online, landing pages y plataformas a medida en Guadalajara.",
+            "inLanguage": "es-MX",
+            "isPartOf": {
+              "@id": "https://carlosmtz.netlify.app/#website"
+            },
+            "about": {
+              "@type": "Person",
+              "name": "Carlos Martínez"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Saltar al contenido principal</a>
@@ -99,7 +145,7 @@
             <li><a href="index.html#sobre-mi">Sobre mí</a></li>
             <li><a href="index.html#servicios">Servicios</a></li>
             <li><a href="portfolio.html" class="is-active">Portafolio</a></li>
-            <!-- <li><a href="planes.html">Planes</a></li> -->
+            <li><a href="planes.html">Planes</a></li>
             <li><a href="index.html#contacto">Contacto</a></li>
           </ul>
           <a
@@ -120,9 +166,11 @@
       <section class="page-hero" aria-label="Introducción al portafolio">
         <div class="container">
           <p class="eyebrow" style="display: flex; justify-content: center">
-            // Portafolio
+            // Portafolio de diseño web
           </p>
-          <h1 class="page-hero__title">Proyectos que hablan por sí solos</h1>
+          <h1 class="page-hero__title">
+            Proyectos web diseñados y desarrollados en Guadalajara
+          </h1>
           <p class="page-hero__subtitle" style="margin-inline: auto">
             Sitios corporativos, tiendas online y plataformas a medida, todos en
             producción hoy.
@@ -166,7 +214,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/uniconcreto-landingsp-2026-08-08-11_16_39.webp"
+                src="assets/imgs/portfolio/landing-page-uniconcreto.webp"
                 alt="Sitio web de Uniconcreto"
                 loading="lazy"
                 width="600"
@@ -175,7 +223,7 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Uniconcreto</p>
-              <h2 class="portfolio-card__title">Concreto y maquinaria</h2>
+              <h3 class="portfolio-card__title">Concreto y maquinaria</h3>
               <p class="portfolio-card__text">
                 Landing Page para empresa de concreto hidráulico, bombeo pluma y
                 estacionaria, mano de obra y renta de maquinaria.
@@ -197,14 +245,12 @@
 
           <article class="portfolio-card" data-category="landing">
             <a
-              href="https://abogadoscardenasmagdaleno.com/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="proyectos/abogados-cardenas-magdaleno/index.html"
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/abogadoscardenasmagdaleno-2026-06-27-15_00_01.webp"
-                alt="Sitio web de Abogados Cárdenas Magdaleno"
+                src="assets/imgs/portfolio/pagina-web-abogados-cardenas-magdaleno.webp"
+                alt="Diseño de página web para Abogados Cárdenas Magdaleno, firma legal"
                 loading="lazy"
                 width="600"
                 height="420"
@@ -212,7 +258,7 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Abogados Cardenas Magdaleno</p>
-              <h2 class="portfolio-card__title">Despacho legal corporativo</h2>
+              <h3 class="portfolio-card__title">Despacho legal corporativo</h3>
               <p class="portfolio-card__text">
                 Landing Page para firma legal, con foco en autoridad y captación
                 de consultas a medida.
@@ -222,11 +268,9 @@
               </div>
               <div class="portfolio-card__actions">
                 <a
-                  href="https://abogadoscardenasmagdaleno.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="proyectos/abogados-cardenas-magdaleno/index.html"
                   class="btn btn--outline btn--sm"
-                  >Visitar sitio</a
+                  >Ver caso de estudio</a
                 >
               </div>
             </div>
@@ -234,14 +278,12 @@
 
           <article class="portfolio-card" data-category="web wordpress">
             <a
-              href="https://soamobiliario.com/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="proyectos/soa-mobiliario/index.html"
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/soamobiliario-2026-06-27-14_57_47.webp"
-                alt="SOA Mobiliario"
+                src="assets/imgs/portfolio/pagina-web-soa-mobiliario.webp"
+                alt="Diseño de página web para SoA Mobiliario, catálogo de mobiliario"
                 loading="lazy"
                 width="600"
                 height="420"
@@ -249,7 +291,7 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">SOA Mobiliario</p>
-              <h2 class="portfolio-card__title">Catálogo de mobiliario</h2>
+              <h3 class="portfolio-card__title">Catálogo de mobiliario</h3>
               <p class="portfolio-card__text">
                 Catálogo de mobiliario para oficinas, hospitales, escuelas,
                 laboratorios y espacios comerciales.
@@ -259,11 +301,9 @@
               </div>
               <div class="portfolio-card__actions">
                 <a
-                  href="https://soamobiliario.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="proyectos/soa-mobiliario/index.html"
                   class="btn btn--outline btn--sm"
-                  >Visitar sitio</a
+                  >Ver caso de estudio</a
                 >
               </div>
             </div>
@@ -277,7 +317,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/abogadosespecialistasmx-2026-06-27-14_59_47.webp"
+                src="assets/imgs/portfolio/landing-page-abogados-especialistas.webp"
                 alt="Sitio web de Abogados Especialistas"
                 loading="lazy"
                 width="600"
@@ -286,9 +326,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Abogados Especialistas</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Despacho legal especializado
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing Page para despacho legal especializado, con objetivo de
                 presencia web y conversiones.
@@ -310,14 +350,12 @@
 
           <article class="portfolio-card" data-category="landing codigo">
             <a
-              href="https://casmolan-nails.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="proyectos/casmolan-nails/index.html"
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/casmolan-nails-netlify-app-2026-06-27.webp"
-                alt="Landing page CASMOLAN Nails"
+                src="assets/imgs/portfolio/landing-page-casmolan-nails.webp"
+                alt="Diseño de landing page para CASMOLAN Nails, estudio de uñas"
                 loading="lazy"
                 width="600"
                 height="420"
@@ -325,9 +363,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">CASMOLAN Nails</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Landing para estudio de uñas
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing para estudio de uñas, con diseño moderno y enfoque en
                 conversión de clientes.
@@ -337,11 +375,9 @@
               </div>
               <div class="portfolio-card__actions">
                 <a
-                  href="https://casmolan-nails.netlify.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="proyectos/casmolan-nails/index.html"
                   class="btn btn--outline btn--sm"
-                  >Visitar sitio</a
+                  >Ver caso de estudio</a
                 >
               </div>
             </div>
@@ -349,14 +385,12 @@
 
           <article class="portfolio-card" data-category="web wordpress">
             <a
-              href="https://schulzmexico.com/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="proyectos/schulz-mexico/index.html"
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/schulzmexico-2026-06-27-14_59_10.webp"
-                alt="Sitio web Schulz México"
+                src="assets/imgs/portfolio/pagina-web-schulz-mexico.webp"
+                alt="Diseño de página web para Schulz México, compresores industriales"
                 loading="lazy"
                 width="600"
                 height="420"
@@ -364,7 +398,7 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Schulz México</p>
-              <h2 class="portfolio-card__title">Sitio web industrial</h2>
+              <h3 class="portfolio-card__title">Sitio web industrial</h3>
               <p class="portfolio-card__text">
                 Desarrollo de sitio web corporativo para la distribución de
                 compresores industriales, refacciones y servicios
@@ -375,11 +409,9 @@
               </div>
               <div class="portfolio-card__actions">
                 <a
-                  href="https://schulzmexico.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="proyectos/schulz-mexico/index.html"
                   class="btn btn--outline btn--sm"
-                  >Visitar sitio</a
+                  >Ver caso de estudio</a
                 >
               </div>
             </div>
@@ -393,7 +425,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/adxdiesel-2026-06-27-14_58_02.webp"
+                src="assets/imgs/portfolio/pagina-web-adx-diesel.webp"
                 alt="Sitio web de ADX Diesel"
                 loading="lazy"
                 width="600"
@@ -402,9 +434,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">ADX Diesel</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Catálogo de refacciones diésel
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Catálogo de inyectores, bombas de inyección, turbocargadores y
                 refacciones para motores diésel.
@@ -426,14 +458,12 @@
 
           <article class="portfolio-card" data-category="web wordpress">
             <a
-              href="https://aranmexdiesel.mx/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="proyectos/aranmex-diesel/index.html"
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/aranmexdiesel-mx-2026-06-27-14_58_14.webp"
-                alt="Sitio web de Aranmex Diesel"
+                src="assets/imgs/portfolio/pagina-web-aranmex-diesel.webp"
+                alt="Diseño de página web para Aranmex Diesel, laboratorio de inyección diésel"
                 loading="lazy"
                 width="600"
                 height="420"
@@ -441,9 +471,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Aranmex Diesel</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Sitio Web para laboratorio diésel
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Sitio Web Industrial para laboratorio especializado en sistemas
                 de inyección y venta de refacciones diésel.
@@ -453,11 +483,9 @@
               </div>
               <div class="portfolio-card__actions">
                 <a
-                  href="https://aranmexdiesel.mx/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="proyectos/aranmex-diesel/index.html"
                   class="btn btn--outline btn--sm"
-                  >Visitar sitio</a
+                  >Ver caso de estudio</a
                 >
               </div>
             </div>
@@ -471,7 +499,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/asesoresprofesionalesmx-2026-06-27-15_00_51.webp"
+                src="assets/imgs/portfolio/landing-page-asesores-profesionales.webp"
                 alt="Sitio web de Asesores Profesionales"
                 loading="lazy"
                 width="600"
@@ -480,9 +508,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Asesores Profesionales</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Landing para despacho jurídico
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing Page diseñada para captar consultas legales mediante una
                 estructura clara, profesional y orientada a conversiones.
@@ -510,7 +538,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/bgtclogistica-2026-06-27-14_56_07.webp"
+                src="assets/imgs/portfolio/pagina-web-bgtc-logistica.webp"
                 alt="Sitio web de BG-TC Logística"
                 loading="lazy"
                 width="600"
@@ -519,9 +547,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">BG-TC Logística</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Sitio Web para empresa de transporte
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Sitio Web Corporativo enfocado en mostrar servicios de
                 transporte y logística de carga.
@@ -549,7 +577,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/cafefinanciero-mx-2026-06-27-15_01_29.webp"
+                src="assets/imgs/portfolio/pagina-web-cafe-financiero.webp"
                 alt="Sitio web de Café Financiero"
                 loading="lazy"
                 width="600"
@@ -558,9 +586,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Café Financiero</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Portal de asesoría financiera
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Sitio web corporativo para asesores financieros con secciones de
                 inversiones, seguros, podcast y generación de prospectos.
@@ -588,7 +616,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/cajasolidariateco-2026-06-27-14_59_32.webp"
+                src="assets/imgs/portfolio/pagina-web-caja-solidaria-tecolotlan.webp"
                 alt="Sitio web de Caja Solidaria Tecolotlán"
                 loading="lazy"
                 width="600"
@@ -597,9 +625,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Caja Solidaria Tecolotlán</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Sitio web para institución financiera
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Portal institucional para cooperativa de ahorro y crédito con
                 información de servicios, beneficios y captación de socios.
@@ -627,7 +655,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/cmmprinting-mx-2026-06-27-15_01_13.webp"
+                src="assets/imgs/portfolio/pagina-web-cmm-printing.webp"
                 alt="Sitio web de CMM Printing"
                 loading="lazy"
                 width="600"
@@ -636,9 +664,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">CMM Printing</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Sitio web para empresa de impresión
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Web corporativa para empresa especializada en impresión,
                 señalética, identidad corporativa y soluciones gráficas.
@@ -666,7 +694,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/despachojuridicojalisciense-2026-06-27-14_58_25.webp"
+                src="assets/imgs/portfolio/landing-page-despacho-juridico-jalisciense.webp"
                 alt="Sitio web de Despacho Jurídico Jalisciense"
                 loading="lazy"
                 width="600"
@@ -677,9 +705,9 @@
               <p class="portfolio-card__client">
                 Despacho Jurídico Jalisciense
               </p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Landing para despacho de abogados
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing Page diseñada para transmitir confianza, experiencia
                 jurídica y captar nuevos clientes mediante formularios.
@@ -707,7 +735,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/despachojuridicojaramillo-2026-06-27-14_58_36.webp"
+                src="assets/imgs/portfolio/landing-page-despacho-juridico-jaramillo.webp"
                 alt="Sitio web de Despacho Jurídico Jaramillo"
                 loading="lazy"
                 width="600"
@@ -716,7 +744,7 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Despacho Jurídico Jaramillo</p>
-              <h2 class="portfolio-card__title">Landing para firma legal</h2>
+              <h3 class="portfolio-card__title">Landing para firma legal</h3>
               <p class="portfolio-card__text">
                 Landing Page enfocada en posicionar los servicios legales del
                 despacho y facilitar la generación de consultas.
@@ -744,7 +772,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/especialistasjuridicos-2026-06-27-15_00_59.webp"
+                src="assets/imgs/portfolio/landing-page-especialistas-juridicos.webp"
                 alt="Sitio web de Especialistas Jurídicos"
                 loading="lazy"
                 width="600"
@@ -753,9 +781,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Especialistas Jurídicos</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Landing para abogados especialistas
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing Page para despacho especializado en derecho familiar y
                 penal, orientada a la captación de clientes.
@@ -783,7 +811,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/fastoffice-landingsp-2026-06-27-14_55_24.webp"
+                src="assets/imgs/portfolio/landing-page-fast-office.webp"
                 alt="Sitio web de Fast Office"
                 loading="lazy"
                 width="600"
@@ -792,9 +820,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Fast Office</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Landing para renta de oficinas
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing Page para oficinas corporativas con enfoque en mostrar
                 espacios disponibles y generar solicitudes de información.
@@ -822,7 +850,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/gomezgallardo-mx-2026-06-27-14_55_38.webp"
+                src="assets/imgs/portfolio/pagina-web-gomez-gallardo.webp"
                 alt="Sitio web de Gómez Gallardo"
                 loading="lazy"
                 width="600"
@@ -831,9 +859,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Gómez Gallardo</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Sitio Web para despacho contable
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Web Corporativa para firma de asesores contables y fiscales
                 enfocada en generar confianza y captar nuevos clientes.
@@ -861,7 +889,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/gruposm-mx-2026-06-27-15_01_43.webp"
+                src="assets/imgs/portfolio/pagina-web-grupo-sm-ingenieria.webp"
                 alt="Sitio web de Grupo SM Ingeniería"
                 loading="lazy"
                 width="600"
@@ -870,9 +898,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Grupo SM Ingeniería</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Sitio web para empresa de ingeniería
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Web corporativa para empresa especializada en supervisión de
                 obra, control de calidad y servicios de ingeniería.
@@ -900,7 +928,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/hyr-soa-mobiliario-2026-06-27-14_56_57.webp"
+                src="assets/imgs/portfolio/landing-page-hyr-soa-mobiliario.webp"
                 alt="Sitio web de HYR SOA Mobiliario"
                 loading="lazy"
                 width="600"
@@ -909,9 +937,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">HyR SOA Mobiliario</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Catálogo de mobiliario institucional
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing page con Catálogo de mobiliario para hoteles y
                 restaurantes con enfoque comercial y objetivo de conversiones.
@@ -939,7 +967,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/impressione-mx-2026-06-27-14_56_38.webp"
+                src="assets/imgs/portfolio/pagina-web-impressione.webp"
                 alt="Sitio web de Impressione"
                 loading="lazy"
                 width="600"
@@ -948,9 +976,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Impressione</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Sitio web para empresa de impresión
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Web corporativa para empresa dedicada a soluciones de impresión,
                 empaque, etiquetado y acabados para la industria.
@@ -978,7 +1006,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/inmcarritos-2026-06-27-15_02_37.webp"
+                src="assets/imgs/portfolio/pagina-web-inoxidables-nuevo-mexico.webp"
                 alt="Sitio web de Inoxidables Nuevo México"
                 loading="lazy"
                 width="600"
@@ -987,9 +1015,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Inoxidables Nuevo México</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Fabricación de cocinas y mobiliario inoxidable
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Sitio web corporativo para fabricante de cocinas industriales,
                 mobiliario en acero inoxidable y proyectos especiales.
@@ -1017,7 +1045,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/inrent-mx-2026-06-27-15_02_11.webp"
+                src="assets/imgs/portfolio/pagina-web-inrent.webp"
                 alt="Sitio web de INRENT Ingeniería y Maquinaria"
                 loading="lazy"
                 width="600"
@@ -1028,9 +1056,9 @@
               <p class="portfolio-card__client">
                 INRENT Ingeniería y Maquinaria
               </p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Sitio web para empresa constructora
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Web corporativa enfocada en construcción, urbanización,
                 ingeniería y renta de maquinaria con presentación de obras
@@ -1059,7 +1087,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/labpro-mx-2026-06-27-14_58_56.webp"
+                src="assets/imgs/portfolio/pagina-web-labpro.webp"
                 alt="Sitio web LabPro"
                 loading="lazy"
                 width="600"
@@ -1068,7 +1096,7 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">LabPro</p>
-              <h2 class="portfolio-card__title">Sitio web para laboratorio</h2>
+              <h3 class="portfolio-card__title">Sitio web para laboratorio</h3>
               <p class="portfolio-card__text">
                 Web corporativa para empresa especializada en mantenimiento,
                 capacitación y venta de equipos de laboratorio.
@@ -1096,7 +1124,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/lading-abogados-af-2026-06-27-14_55_08.webp"
+                src="assets/imgs/portfolio/landing-page-af-abogados.webp"
                 alt="Landing AF Abogados"
                 loading="lazy"
                 width="600"
@@ -1105,9 +1133,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">AF Abogados</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Landing para despacho jurídico
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing Page orientada a captar clientes para servicios de
                 derecho penal, familiar y civil.
@@ -1133,7 +1161,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/landing-grupoessa-mx-2026-06-27-14_53_41.webp"
+                src="assets/imgs/portfolio/landing-page-grupo-essa.webp"
                 alt="Landing Grupo ESSA"
                 loading="lazy"
                 width="600"
@@ -1142,9 +1170,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Grupo ESSA</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Landing para productos aeroportuarios
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing diseñada para mostrar soluciones y productos
                 especializados para infraestructura aeroportuaria.
@@ -1170,7 +1198,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/melamina-soa-mobiliario-2026-06-27-14_57_09.webp"
+                src="assets/imgs/portfolio/landing-page-melamina-soa-mobiliario.webp"
                 alt="Landing mobiliario de melamina"
                 loading="lazy"
                 width="600"
@@ -1179,9 +1207,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">SOA Mobiliario</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Landing de mobiliario de melamina
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing enfocada en oficinas corporativas y mobiliario de
                 melamina con captación de cotizaciones.
@@ -1207,7 +1235,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/metalicos-soa-mobiliario-2026-06-27-14_57_23.webp"
+                src="assets/imgs/portfolio/landing-page-metalicos-soa-mobiliario.webp"
                 alt="Landing mobiliario metálico"
                 loading="lazy"
                 width="600"
@@ -1216,9 +1244,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">SOA Mobiliario</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Landing de mobiliario metálico
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing para líneas de mobiliario metálico industrial, comercial
                 y corporativo.
@@ -1238,14 +1266,12 @@
 
           <article class="portfolio-card" data-category="tienda shopify">
             <a
-              href="https://www.mocoallure.com.mx/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="proyectos/mocoallure/index.html"
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/mocoallure-mx-2026-06-27-15_00_12.webp"
-                alt="Ecommerce Moco Allure"
+                src="assets/imgs/portfolio/tienda-online-mocoallure.webp"
+                alt="Diseño de tienda online para Moco Allure, e-commerce de cosméticos"
                 loading="lazy"
                 width="600"
                 height="420"
@@ -1253,7 +1279,7 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Moco Allure</p>
-              <h2 class="portfolio-card__title">Ecommerce de cosméticos</h2>
+              <h3 class="portfolio-card__title">Ecommerce de cosméticos</h3>
               <p class="portfolio-card__text">
                 Tienda en línea para productos de maquillaje, skincare y
                 accesorios de belleza.
@@ -1263,11 +1289,9 @@
               </div>
               <div class="portfolio-card__actions">
                 <a
-                  href="https://www.mocoallure.com.mx/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="proyectos/mocoallure/index.html"
                   class="btn btn--outline btn--sm"
-                  >Visitar sitio</a
+                  >Ver caso de estudio</a
                 >
               </div>
             </div>
@@ -1281,7 +1305,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/nubasys-2026-06-27-14_53_22.webp"
+                src="assets/imgs/portfolio/landing-page-nubasys.webp"
                 alt="Landing Page Nubasys"
                 loading="lazy"
                 width="600"
@@ -1290,9 +1314,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Nubasys</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Landing Page para tecnología e impresión
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing Page especializada en cartuchos, impresoras, redes y
                 soluciones tecnológicas.
@@ -1320,7 +1344,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/plasticruz-2026-06-27-15_00_40.webp"
+                src="assets/imgs/portfolio/pagina-web-plasticruz.webp"
                 alt="Sitio web Plasticruz"
                 loading="lazy"
                 width="600"
@@ -1329,9 +1353,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Plasticruz</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Sitio web para reciclaje industrial
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Web corporativa para empresa dedicada a la fabricación y
                 comercialización de plástico reciclado.
@@ -1359,7 +1383,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/plenavisum-oftalmologia-dr-rene-castro-gonzalez-2026-06-27-14_59_22.webp"
+                src="assets/imgs/portfolio/landing-page-plena-visum.webp"
                 alt="Landing Plena Visum"
                 loading="lazy"
                 width="600"
@@ -1368,9 +1392,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Plena Visum</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Landing para clínica oftalmológica
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing enfocada en consulta, cirugía refractiva y captación de
                 pacientes mediante WhatsApp.
@@ -1398,7 +1422,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/soa-mobiliario-2026-06-27-14_57_36.webp"
+                src="assets/imgs/portfolio/landing-page-soa-mobiliario.webp"
                 alt="Landing Page SOA Mobiliario"
                 loading="lazy"
                 width="600"
@@ -1407,7 +1431,7 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">SOA Mobiliario</p>
-              <h2 class="portfolio-card__title">Landing Page corporativo</h2>
+              <h3 class="portfolio-card__title">Landing Page corporativo</h3>
               <p class="portfolio-card__text">
                 Landing Page para empresa especializada en mobiliario
                 corporativo, médico, escolar, urbano e institucional.
@@ -1435,7 +1459,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/starken-mx-2026-06-27-14_55_50.webp"
+                src="assets/imgs/portfolio/pagina-web-starken.webp"
                 alt="Sitio web Starken"
                 loading="lazy"
                 width="600"
@@ -1444,9 +1468,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Starken</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Sitio web para interiores premium
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Desarrollo de sitio web para cocinas, closets, muebles de baño y
                 soluciones residenciales de alta gama.
@@ -1474,7 +1498,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/telasygalonesconcevida-2026-06-27-15_02_52.webp"
+                src="assets/imgs/portfolio/landing-page-telas-concevida.webp"
                 alt="Landing Telas Litúrgicas Concevida"
                 loading="lazy"
                 width="600"
@@ -1483,9 +1507,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">Telas Litúrgicas Concevida</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Landing para textiles litúrgicos
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing enfocada en la venta de telas, galones y accesorios
                 litúrgicos importados con generación de prospectos por WhatsApp.
@@ -1513,7 +1537,7 @@
               class="portfolio-card__media"
             >
               <img
-                src="assets/imgs/portfolio/zaratesolucionesfinancieras-2026-06-27-14_58_46.webp"
+                src="assets/imgs/portfolio/landing-page-maria-zarate.webp"
                 alt="Landing María Zárate"
                 loading="lazy"
                 width="600"
@@ -1522,9 +1546,9 @@
             </a>
             <div class="portfolio-card__body">
               <p class="portfolio-card__client">María Zárate</p>
-              <h2 class="portfolio-card__title">
+              <h3 class="portfolio-card__title">
                 Landing para coach financiera
-              </h2>
+              </h3>
               <p class="portfolio-card__text">
                 Landing diseñada para la captación de clientes interesados en
                 educación financiera, inversiones y asesoría personalizada.
@@ -1557,10 +1581,11 @@
               // Siguiente paso
             </p>
             <h2 class="cta-final__title">
-              ¿Tu proyecto podría ser el siguiente?
+              ¿Necesitas una página web para tu negocio en Guadalajara?
             </h2>
             <p class="cta-final__subtitle">
-              Cuéntame qué tienes en mente y construyamos algo igual de sólido.
+              Cuéntame qué tienes en mente y construyamos algo igual de sólido,
+              con diseño y desarrollo web profesional.
             </p>
             <div style="display: flex; justify-content: center">
               <a
@@ -1607,7 +1632,8 @@
             />
           </a>
           <p class="footer__tagline">
-            Desarrollo web y marketing digital con enfoque en resultados.
+            Diseño de páginas web y marketing digital en Guadalajara, Jalisco,
+            con enfoque en resultados.
           </p>
         </div>
 
@@ -1615,7 +1641,7 @@
           <h4>Navegación</h4>
           <a href="index.html">Inicio</a>
           <a href="portfolio.html">Portafolio</a>
-          <!-- <a href="planes.html">Planes</a> -->
+          <a href="planes.html">Planes</a>
         </div>
 
         <div class="footer__col">
