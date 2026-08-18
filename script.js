@@ -16,8 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
       navbar.classList.remove("is-scrolled");
     }
   };
-  handleNavbarScroll();
-  window.addEventListener("scroll", handleNavbarScroll, { passive: true });
+  if (navbar) {
+    handleNavbarScroll();
+    window.addEventListener("scroll", handleNavbarScroll, { passive: true });
+  }
 
   /* ============================================
      2. NAVBAR :: menú móvil
@@ -207,5 +209,101 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
     });
+  }
+
+  /* ============================================
+     7. AVISO DE COOKIES
+     Muestra el banner de consentimiento si el
+     usuario aún no ha decidido y aplica la
+     decisión al modo de consentimiento de gtag
+     (Google Analytics).
+     ============================================ */
+  const COOKIE_CONSENT_KEY = "cmw_cookie_consent";
+
+  const getStoredConsent = () => {
+    try {
+      return localStorage.getItem(COOKIE_CONSENT_KEY);
+    } catch (e) {
+      return null;
+    }
+  };
+
+  const setStoredConsent = (value) => {
+    try {
+      localStorage.setItem(COOKIE_CONSENT_KEY, value);
+    } catch (e) {
+      /* almacenamiento no disponible */
+    }
+  };
+
+  const applyConsent = (decision) => {
+    if (typeof gtag !== "function") return;
+    const granted = decision === "accepted";
+    gtag("consent", "update", {
+      ad_storage: granted ? "granted" : "denied",
+      analytics_storage: granted ? "granted" : "denied",
+      personalization_storage: granted ? "granted" : "denied",
+    });
+  };
+
+  const getPrivacyUrl = () => {
+    const parts = location.pathname.split("/").filter(Boolean);
+    let depth = 0;
+    if (parts.length) {
+      const last = parts[parts.length - 1];
+      // Páginas de proyectos con URL tipo /proyectos/xxx/ (sin archivo)
+      depth = /\.html?$/i.test(last) ? parts.length - 1 : parts.length;
+    }
+    return "../".repeat(depth) + "aviso-de-privacidad.html";
+  };
+
+  const showCookieBanner = () => {
+    const privacyUrl = getPrivacyUrl();
+
+    const banner = document.createElement("div");
+    banner.className = "cookie-banner";
+    banner.setAttribute("role", "dialog");
+    banner.setAttribute("aria-live", "polite");
+    banner.setAttribute("aria-label", "Aviso de uso de cookies");
+
+    banner.innerHTML =
+      '<div class="cookie-banner__inner">' +
+      '<div class="cookie-banner__content">' +
+      '<p class="cookie-banner__title">Este sitio usa cookies</p>' +
+      '<p class="cookie-banner__text">' +
+      'Uso cookies de analítica (Google Analytics) para medir y mejorar la ' +
+      'experiencia del sitio. Puedes aceptarlas o rechazarlas. Conoce más en el ' +
+      '<a href="' +
+      privacyUrl +
+      '" class="cookie-banner__link">aviso de privacidad y cookies</a>.' +
+      "</p>" +
+      "</div>" +
+      '<div class="cookie-banner__actions">' +
+      '<button type="button" class="cookie-banner__btn cookie-banner__btn--ghost" data-cookie-action="rejected">Rechazar</button>' +
+      '<button type="button" class="cookie-banner__btn cookie-banner__btn--primary" data-cookie-action="accepted">Aceptar</button>' +
+      "</div>" +
+      "</div>";
+
+    document.body.appendChild(banner);
+
+    // Entrada suave en el siguiente frame
+    requestAnimationFrame(() => banner.classList.add("is-visible"));
+
+    banner.querySelectorAll("[data-cookie-action]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const decision = btn.dataset.cookieAction;
+        setStoredConsent(decision);
+        applyConsent(decision);
+        banner.classList.remove("is-visible");
+        setTimeout(() => banner.remove(), 400);
+      });
+    });
+  };
+
+  const storedConsent = getStoredConsent();
+  if (storedConsent === "accepted" || storedConsent === "rejected") {
+    applyConsent(storedConsent);
+  } else {
+    showCookieBanner();
   }
 });

@@ -19,6 +19,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.carlosmtzwebs.com/aviso-de-privacidad.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
     <loc>https://www.carlosmtzwebs.com/proyectos/soa-mobiliario/</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>

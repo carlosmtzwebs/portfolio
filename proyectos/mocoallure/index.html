@@ -11,9 +11,17 @@
       function gtag() {
         dataLayer.push(arguments);
       }
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "granted",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+      });
       gtag("js", new Date());
 
-      gtag("config", "G-VCGL5HLWEN");
+      gtag("config", "G-VCGL5HLWEN", { anonymize_ip: true });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -417,6 +425,9 @@
 
       <div class="container footer__bottom">
         <p>&copy; 2026 Carlos Mtz. Todos los derechos reservados.</p>
+        <a class="footer__legal" href="../../aviso-de-privacidad.html"
+          >Aviso de privacidad y cookies</a
+        >
       </div>
     </footer>
 
