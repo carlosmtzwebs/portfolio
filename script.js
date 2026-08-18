@@ -167,6 +167,10 @@ document.addEventListener("DOMContentLoaded", () => {
             "success",
           );
           contactForm.reset();
+          sendGAEvent("formulario_enviado", {
+            metodo: "emailjs",
+            page: location.pathname,
+          });
         })
         .catch((error) => {
           console.error(error);
@@ -306,4 +310,24 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     showCookieBanner();
   }
+
+  /* ============================================
+     8. GOOGLE ANALYTICS :: eventos personalizados
+     ============================================ */
+  const sendGAEvent = (eventName, params = {}) => {
+    if (typeof gtag === "function") {
+      gtag("event", eventName, params);
+    }
+  };
+
+  // Cualquier enlace a WhatsApp (flotante, CTAs, planes y proyectos)
+  document.addEventListener("click", (e) => {
+    const waLink = e.target.closest('a[href*="wa.me"]');
+    if (waLink) {
+      sendGAEvent("Envio_de_WhatsApp", {
+        source: waLink.className || "enlace",
+        page: location.pathname,
+      });
+    }
+  });
 });
