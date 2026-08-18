@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://carlosmtz.netlify.app/sitemap.xml
+Sitemap: https://www.carlosmtzwebs.com/sitemap.xml

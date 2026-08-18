@@ -2,7 +2,7 @@
 
 Portafolio oficial de **Carlos Eduardo Martínez Alvarado**, desarrollador web frontend. Sitio estático (HTML, CSS y JavaScript) enfocado en rendimiento, SEO y conversión.
 
-🔗 **Sitio en vivo:** https://carlosmtz.netlify.app
+🔗 **Sitio en vivo:** https://www.carlosmtzwebs.com
 
 ## Contenido
 
@@ -14,7 +14,7 @@ Portafolio oficial de **Carlos Eduardo Martínez Alvarado**, desarrollador web f
 ## SEO y despliegue
 
 - **`robots.txt`** — Permite el rastreo completo y referencia el sitemap.
-- **`sitemap.xml`** — Sitemap con las 3 URLs principales en `carlosmtz.netlify.app`.
+- **`sitemap.xml`** — Sitemap con las 3 URLs principales en `www.carlosmtzwebs.com`.
 - **`_redirects`** — Redirige `/index.html` → `/` (evita contenido duplicado en Netlify).
 - **`_headers`** — Cabeceras de seguridad y caché de navegador para Netlify (1 año en assets, sin caché en HTML).
 - Metadatos SEO (`canonical`, Open Graph, Twitter Card y Schema.org Person) en `index.html` y `portfolio.html`.
