@@ -1900,6 +1900,28 @@ textarea:focus-visible {
   transform: translateY(0);
   visibility: visible;
 }
+.cookie-banner__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--c-text-light-muted);
+  cursor: pointer;
+  transition:
+    background var(--t-fast),
+    color var(--t-fast);
+}
+.cookie-banner__close:hover {
+  background: var(--c-surface-2);
+  color: var(--c-text-light);
+}
 .cookie-banner__inner {
   display: flex;
   align-items: center;
@@ -1912,6 +1934,7 @@ textarea:focus-visible {
   font-size: 1rem;
   color: var(--c-text-light);
   margin-bottom: var(--space-2);
+  padding-right: 2rem;
 }
 .cookie-banner__text {
   color: var(--c-text-light-muted);

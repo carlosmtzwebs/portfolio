@@ -129,9 +129,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const formStatus = document.getElementById("formStatus");
 
   if (contactForm) {
-    emailjs.init({
-      publicKey: "AX-rGwetu0hgfosF5",
-    });
+    const emailJsAvailable = typeof emailjs !== "undefined";
+
+    if (emailJsAvailable) {
+      emailjs.init({
+        publicKey: "AX-rGwetu0hgfosF5",
+      });
+    }
 
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -149,6 +153,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!emailPattern.test(email)) {
         showFormStatus("Ingresa un correo electrónico válido.", "error");
+        return;
+      }
+
+      if (!emailJsAvailable) {
+        showFormStatus(
+          "El envío no está disponible ahora. Escríbeme por WhatsApp.",
+          "error",
+        );
         return;
       }
 
@@ -272,6 +284,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     banner.innerHTML =
       '<div class="cookie-banner__inner">' +
+      '<button type="button" class="cookie-banner__close" data-cookie-action="accepted" aria-label="Cerrar y aceptar cookies">' +
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>' +
+      "</button>" +
       '<div class="cookie-banner__content">' +
       '<p class="cookie-banner__title">Este sitio usa cookies</p>' +
       '<p class="cookie-banner__text">' +
