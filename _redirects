@@ -1,3 +1,7 @@
-# Netlify redirects (https://docs.netlify.com/routing/redirects/)
+# Redirección de subdominio Netlify al dominio personalizado
+
+https://carlosmtz.netlify.app/* https://www.carlosmtzwebs.com/:splat 301!
+
 # Evita contenido duplicado: /index.html -> /
+
 /index.html / 301
