@@ -132,9 +132,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const name = contactForm.name.value.trim();
       const email = contactForm.email.value.trim();
+      const phone = contactForm.phone ? contactForm.phone.value.trim() : "";
       const message = contactForm.message.value.trim();
 
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phonePattern = /^[0-9+()\s-]{7,15}$/;
 
       if (!name || !email || !message) {
         showFormStatus("Por favor completa todos los campos.", "error");
@@ -143,6 +145,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!emailPattern.test(email)) {
         showFormStatus("Ingresa un correo electrónico válido.", "error");
+        return;
+      }
+
+      if (phone && !phonePattern.test(phone)) {
+        showFormStatus("Ingresa un número de teléfono válido.", "error");
         return;
       }
 
