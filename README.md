@@ -25,13 +25,13 @@ Portafolio oficial de **Carlos Eduardo Martínez Alvarado**, desarrollador web f
 
 - HTML5 semántico y accesible (ARIA, `skip-link`)
 - CSS con variables de diseño (tokens), layout responsive y revelado al hacer scroll
-- JavaScript vanilla (menú móvil, filtros del portafolio, contadores, formulario con EmailJS)
+- JavaScript vanilla (menú móvil, filtros del portafolio, contadores, formulario con Netlify Forms)
 - Fonts: Google Fonts (Manrope + Inter)
 
 ## Contacto
 
 - WhatsApp: [+52 (1) 33 4821 7208](https://wa.me/523348217208)
-- Correo: [carlos.m.webs@gmail.com](mailto:carlos.m.webs@gmail.com)
+- Correo: [info@carlosmtzwebs.com](mailto:info@carlosmtzwebs.com)
 - Instagram: [@carlos.mtz.webs](https://www.instagram.com/carlos.mtz.webs/)
 - Facebook: [Carlos Mtz](https://www.facebook.com/profile.php?id=61592552905246)
 

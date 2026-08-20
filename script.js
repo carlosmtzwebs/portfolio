@@ -121,22 +121,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ============================================
      5. FORMULARIO DE CONTACTO
-     Validación básica + estado simulado de envío.
-     (Conectar a un backend o servicio de email real
-     en producción, p. ej. Formspree, Resend, etc.)
+     Validación básica + envío AJAX a Netlify Forms.
      ============================================ */
   const contactForm = document.getElementById("contactForm");
   const formStatus = document.getElementById("formStatus");
 
   if (contactForm) {
-    const emailJsAvailable = typeof emailjs !== "undefined";
-
-    if (emailJsAvailable) {
-      emailjs.init({
-        publicKey: "AX-rGwetu0hgfosF5",
-      });
-    }
-
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
@@ -156,14 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      if (!emailJsAvailable) {
-        showFormStatus(
-          "El envío no está disponible ahora. Escríbeme por WhatsApp.",
-          "error",
-        );
-        return;
-      }
-
       const submitBtn = contactForm.querySelector(".contact-form__submit");
       const btnText = submitBtn.querySelector(".btn__text");
       const originalText = btnText.textContent;
@@ -171,16 +153,22 @@ document.addEventListener("DOMContentLoaded", () => {
       submitBtn.disabled = true;
       btnText.textContent = "Enviando...";
 
-      emailjs
-        .sendForm("service_5hl7ybl", "template_zqq55hr", contactForm)
-        .then(() => {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(contactForm)).toString(),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
           showFormStatus(
             "¡Mensaje enviado! Te responderé muy pronto.",
             "success",
           );
           contactForm.reset();
           sendGAEvent("formulario_enviado", {
-            metodo: "emailjs",
+            metodo: "netlify_forms",
             page: location.pathname,
           });
         })

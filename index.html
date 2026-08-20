@@ -98,7 +98,7 @@
             "description": "Diseñador y desarrollador de páginas web en Guadalajara, Jalisco. Sitios rápidos, modernos y optimizados para SEO.",
             "url": "https://www.carlosmtzwebs.com/",
             "image": "https://www.carlosmtzwebs.com/assets/imgs/diseno-paginas-web-guadalajara.webp",
-            "email": "mailto:carlos.m.webs@gmail.com",
+            "email": "mailto:info@carlosmtzwebs.com",
             "telephone": "+523348217208",
             "address": {
               "@type": "PostalAddress",
@@ -135,7 +135,7 @@
             "name": "Carlos Martínez",
             "url": "https://www.carlosmtzwebs.com/",
             "logo": "https://www.carlosmtzwebs.com/assets/imgs/logo-diseno-paginas-web-guadalajara.png",
-            "email": "mailto:carlos.m.webs@gmail.com",
+            "email": "mailto:info@carlosmtzwebs.com",
             "telephone": "+523348217208",
             "founder": {
               "@id": "https://www.carlosmtzwebs.com/#person"
@@ -1447,7 +1447,19 @@
               </a>
             </div>
 
-            <form class="contact-form" id="contactForm" novalidate>
+            <form
+              class="contact-form"
+              id="contactForm"
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              novalidate
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="sr-only">
+                <label>No llenes este campo <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+              </p>
               <div class="contact-form__row">
                 <div class="form-field">
                   <label class="sr-only" for="name">Nombre</label>
@@ -1549,7 +1561,7 @@
             rel="noopener noreferrer"
             >+52 (1) 33 4821 7208</a
           >
-          <a href="mailto:carlos.m.webs@gmail.com">carlos.m.webs@gmail.com</a>
+          <a href="mailto:info@carlosmtzwebs.com">info@carlosmtzwebs.com</a>
           <span class="footer__location">Guadalajara, Jalisco, México</span>
         </div>
 
@@ -1650,9 +1662,6 @@
         />
       </svg>
     </a>
-
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <!-- JS -->
     <script src="script.js"></script>
